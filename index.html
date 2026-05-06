@@ -18,8 +18,8 @@
         }
     </script>
 
-    <!-- Pop‑up ad script (moved to head so it loads early) -->
-    <script src="https://pl29348840.profitablecpmratenetwork.com/70/ca/d9/70cad91e1c8b4dfdb9a27cab28f96005.js"></script>
+    <!-- Top banner ad script (replaced) -->
+    <script src="https://pl29349801.profitablecpmratenetwork.com/13/e3/17/13e317fd633e37ff27df811b6749682b.js"></script>
 
     <style>
         :root {
@@ -376,18 +376,15 @@
         </div>
     </div>
 
-    <!-- Additional Ad Elements (loaded after main content) -->
-    <!-- Container for invoke.js ad -->
+    <!-- Additional Ad Elements -->
     <div id="container-2fc4e0426b6186925acb99686fb36795"></div>
-
-    <!-- New ad script (invoke) -->
     <script async="async" data-cfasync="false" src="https://pl29348841.profitablecpmratenetwork.com/2fc4e0426b6186925acb99686fb36795/invoke.js"></script>
 
-    <!-- Third ad network script -->
-    <script src="https://pl29348839.profitablecpmratenetwork.com/89/92/1b/89921b40245a6711fc4dcfdb36350167.js"></script>
+    <!-- Popdown ad script (replaced) -->
+    <script src="https://pl29349800.profitablecpmratenetwork.com/3a/c0/c4/3ac0c445157950843d3c1ee3c3cf1080.js"></script>
 
     <script>
-        // ── Brainrot Data ──
+        // Brainrot data, infinite scroll, confetti, timer, etc. (identical to previous version)
         const brainrotsData = [
             { name: 'Strawberry Elephant', rarity: 'OG', image: 'strawberry-elephant.png' },
             { name: 'Meowl', rarity: 'OG', image: 'meowl.png' },
@@ -401,7 +398,6 @@
             { name: 'La Supreme Combinasion', rarity: 'Secret', image: 'la-supreme-combinasion.png' },
         ];
 
-        // ── Infinite Scroll Showcase ──
         const brainrotsWithStock = brainrotsData.map(b => ({ ...b, stock: Math.random() < 0.5 ? 'limited' : 'out-of-stock' }));
         function buildBrainrotItem(b) {
             const div = document.createElement('div');
@@ -633,7 +629,7 @@
             setTimeout(launchConfetti, 200);
         }
 
-        // ── Form submit ──
+        // Form submit
         document.getElementById('giveaway-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = usernameInput.value.trim();
@@ -645,13 +641,11 @@
             showSelectionScreen(username, bonusActive);
         });
 
-        // ── Selection continue ──
         document.getElementById('selection-continue-btn').addEventListener('click', () => {
             if (selectedBrainrots.length === 0) return;
             showClaimScreen(currentUsername, currentBonusActive);
         });
 
-        // ── Continue button already calls call_locker() via onclick, fallback event listener ──
         document.getElementById('continue-button').addEventListener('click', (e) => {
             e.preventDefault();
             if (typeof call_locker === 'function') {
@@ -659,7 +653,6 @@
             }
         });
 
-        // ── Ad-Blocker Detection ──
         function detectAdBlocker() {
             const adDiv = document.getElementById('adblock-detector');
             if (!adDiv) return false;
@@ -677,7 +670,7 @@
             document.getElementById('block-footer').style.display = 'none';
         }
 
-        // ── Cookie check for returning users ──
+        // Cookie check for returning users
         const savedData = getCookie('brainrot_registered');
         if (savedData && !detectAdBlocker()) {
             try {
